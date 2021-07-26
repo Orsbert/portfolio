@@ -1,0 +1,35 @@
+.header-wrapper{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	text-align: center;
+	height: 100vh;
+	.name-wrapper{
+		font-style: normal;
+		font-weight: bold;
+		line-height: 33px;
+		.avator{
+			height: 70px;
+			width: 70px;
+		}
+		.name{
+			font-size: 27px;
+		}
+	}
+	.occupation-big{
+		font-style: normal;
+		font-weight: bold;
+		font-size: 141px;
+		line-height: 172px;
+	}
+	.occupation-explain{
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		line-height: 37px;
+	}
+	.buttons-wrapper{
+		padding: 5vh 0px;
+	}
+}
