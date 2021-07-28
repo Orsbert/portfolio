@@ -4,23 +4,30 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-	color: $primary-color
+}
+body{
+	color: $primary-color;
 }
 
-button{
+.button{
 	border-radius: 10px;
-	padding: 5px 8px;
+	padding: 6px 15px;
+	display: flex;
+	align-items: center;
+	transition: background-color 0.3s;
 	&.primary{
 		background-color: $secondary-color;
 		color: white;
 		font-style: normal;
 		font-weight: 600;
-		font-size: 27px;
+		font-size: 18px;
 		line-height: 33px;
 	}
 	&:hover{
+		cursor: pointer;
 		background-color: rgba(128, 128, 128, 0.521);
 	}
 }
 
 @import 'Header.scss';
+@import 'Nav.scss';

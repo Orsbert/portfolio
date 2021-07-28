@@ -1,3 +1,5 @@
+@import 'variables';
+
 .header-wrapper{
 	display: flex;
 	flex-direction: column;
@@ -5,7 +7,7 @@
 	justify-content: center;
 	background-color: white;
 	text-align: center;
-	height: 100vh;
+	height: calc(100vh - 65.07px);
 	.name-wrapper{
 		font-style: normal;
 		font-weight: bold;
@@ -33,8 +35,14 @@
 		font-size: 30px;
 		line-height: 37px;
 		max-width: 60vw;
+		padding: 3vh 0px;
 	}
-	.buttons-wrapper{
+	.bottom-buttons-wrapper{
+		display: flex;
 		padding: 5vh 0px;
+		.down-arrow{
+			color: $secondary-color;
+			font-size: 36px;
+		}
 	}
 }

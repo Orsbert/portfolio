@@ -115,6 +115,21 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz#87de7af9c231826fdd68ac7258f77c429e0e5fcf"
   integrity sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==
 
+"@iconify/icons-akar-icons@^1.1.17":
+  version "1.1.17"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-akar-icons/-/icons-akar-icons-1.1.17.tgz#81050d99326e3c896337ba9cbed6d14d61cec676"
+  integrity sha512-4VV1k1yINGy+vXKcEyQwES49Ee/DUqY1MofY8+sumZVd1os7vh7JHGMLSaIhLS0uqrAJzoUuKdwqEbPSikv+Yw==
+
+"@iconify/icons-bi@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-bi/-/icons-bi-1.1.5.tgz#a0222facbbcb22489c6faf7648e3662b732605d1"
+  integrity sha512-aDxe8WGt9KovnzzBSi5m4WR/OQ6bjx3x85jxhiCM/ylTZtPwMGUZyuNY7hU7ECV8QFci/IMUNHRmz3epm88/+w==
+
+"@iconify/react@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@iconify/react/-/react-1.1.4.tgz#c778eddbaf196e55705d0bedff00d039dc1de8d3"
+  integrity sha512-oxq8IMOq8q3nKGiDHbQPC8FcFuBsKve68JWBo140d5LRnj0bv5TB/FE/y01ZSvEZ7PlI2HIrnb2qivPN8kTDgw==
+
 "@next/env@11.0.1":
   version "11.0.1"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-11.0.1.tgz#6dc96ac76f1663ab747340e907e8933f190cc8fd"

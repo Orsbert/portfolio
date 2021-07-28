@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import Image from 'next/image'
+import { Icon } from '@iconify/react'
+import caretDownSquareFill from '@iconify/icons-bi/caret-down-square-fill'
 
 export const Header = () => {
 	return (
-		<motion.div className='header-wrapper'>
+		<motion.div
+			className='header-wrapper'
+			transition={{ duration: 0.5 }}
+		>
 			<div className="name-wrapper">
 				<Image
 					src='/dp.png'
@@ -27,8 +32,13 @@ export const Header = () => {
 				<div className="button primary">
 					hello@orsbert.com
 				</div>
-				<div className='button' >
-					<span>d </span>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<div className='button'>
+					<Icon
+						icon={caretDownSquareFill}
+						className='down-arrow'
+					/>
+					&nbsp;&nbsp;
 					<span>see my work</span>
 				</div>
 			</div>

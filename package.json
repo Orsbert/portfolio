@@ -17,6 +17,9 @@
     "sass": "^1.36.0"
   },
   "devDependencies": {
+    "@iconify/icons-akar-icons": "^1.1.17",
+    "@iconify/icons-bi": "^1.1.5",
+    "@iconify/react": "^1.1.4",
     "eslint": "7.31.0",
     "eslint-config-next": "11.0.1"
   }
