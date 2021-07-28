@@ -1,5 +1,6 @@
 .header-wrapper{
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	background-color: white;
@@ -9,6 +10,9 @@
 		font-style: normal;
 		font-weight: bold;
 		line-height: 33px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		.avator{
 			height: 70px;
 			width: 70px;
@@ -28,6 +32,7 @@
 		font-weight: normal;
 		font-size: 30px;
 		line-height: 37px;
+		max-width: 60vw;
 	}
 	.buttons-wrapper{
 		padding: 5vh 0px;
