@@ -2,25 +2,29 @@
 
 .portfolio-list{
 	background: url(/images/buttons-panel.png);
-	height: 100vh;
+	background-color: $primary-color;
+	min-height: 100vh;
 	color: white;
 }
 
 .tags-wrapper{
-	padding: 40px 0px;
 	display: flex;
 	flex-wrap: wrap;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.61);
+	background-blend-mode: hard-light;
 	.tag{
-		border: 3px solid $secondary-color;
-		border-radius: 4px;
+		border: calc(1px + 0.1vw) solid $secondary-color;
+		border-radius: calc(3px + 0.1vw);
 		text-transform: uppercase;
 		font-style: normal;
 		font-weight: bold;
-		font-size: 27px;
-		line-height: 33px;
+		font-size: calc(15px + 0.01vw);
 		color: $secondary-color;
-		padding: 5px;
-		margin: 5px;
+		padding: calc(3px + 0.01vw) calc(4px + 0.03vw);
+		margin-right: calc(4px + 0.35vw);
 		white-space: nowrap;
 		transition: 0.3s background-color, 0.3s border;
 		cursor: default;
@@ -28,25 +32,27 @@
 			border-color: white;
 			background-color: white;
 			color: transparent !important;
-			box-shadow: 0px 0px 2px white;
+			box-shadow: 0px 0px calc(1px + 0.03vw) white;
 		}
 		&.tagged{
 			border-color: white;
 			color: white;
-			box-shadow: 0px 0px 2px white;
+			box-shadow: 0px 0px calc(1px + 0.02vw) white;
 		}
 		&.selected{
 			border-color: white;
 			background-color: white;
 			color: transparent;
-			box-shadow: 0px 0px 2px white;
+			box-shadow: 0px 0px calc(1px + 0.01vw) white;
 		}
 	}
 }
 
 .portfolio-thumbnails-wrapper{
 	display: flex;
+	padding: calc(15px + 0.5vw) 0px;
+	flex-wrap: wrap;
 	.portfolio-thumbnail{
-		margin: 5px;
+		padding: 5px;
 	}
 }

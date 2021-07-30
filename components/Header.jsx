@@ -29,7 +29,6 @@ export const Header = () => {
 						width={70}
 					/>
 				</div>
-				&nbsp;&nbsp;&nbsp;&nbsp;
 				<div>
 					<span className='name'>ORSBERT AYESIGYE</span>
 				</div>
@@ -44,14 +43,13 @@ export const Header = () => {
 				<div className="button primary">
 					hello@orsbert.com
 				</div>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<div className='button'>
+				<div className='button down-arrow-wrapper'>
 					<Icon
 						icon={caretDownSquareFill}
 						className='down-arrow'
 					/>
 					&nbsp;&nbsp;
-					<span>see my work</span>
+					<div className='see-my-work'>see my work</div>
 				</div>
 			</div>
 		</motion.div>

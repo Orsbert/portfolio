@@ -13,8 +13,8 @@ body{
 }
 
 .button{
-	border-radius: 10px;
-	padding: 6px 15px;
+	border-radius: calc(1px + 0.7vw);
+	padding: calc(2px + 0.42vw) calc(2px + 1.05vw);
 	display: flex;
 	align-items: center;
 	transition: background-color 0.3s;
@@ -23,8 +23,8 @@ body{
 		color: white;
 		font-style: normal;
 		font-weight: 600;
-		font-size: 18px;
-		line-height: 33px;
+		font-size: calc(6px + 1.2vw);
+		line-height: calc(1px + 2.31vw);
 	}
 	&:hover{
 		cursor: pointer;
@@ -35,27 +35,47 @@ body{
 .heading{
 	display: block;
 	font-weight: bold;
-	font-size: 39px;
-	line-height: 48px;
-	padding: 20px 0px;
+	font-size: calc(28px + 2.3vw);
+	padding: calc(8px + 0.01vw) 0px;
 }
 .sub-heading{
 	display: block;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 36px;
-	line-height: 44px;
-	padding: 15px 0px;
+	font-size: calc(20px + 3vw);
+	line-height: calc(20px + 2.9vw);
+	padding: calc(20px + 0.05vw) 0px;
 }
 
 .normal{
 	font-weight: normal;
-	font-size: 32px;
-	line-height: 39px;
+	font-size: calc(16px + 0.8vw);
+	line-height: calc(15px + 1.8vw);
 }
 
-.container{
-	padding: 20px 10vw;
+// container from bootstrap
+.container {
+	padding-top: calc(1px + 1.6vw);
+	padding-bottom: calc(1px + 1.6vw);
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
 }
 
 .center{

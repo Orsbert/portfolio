@@ -15,7 +15,7 @@ export const Footer = () => {
 			<div className="button primary">
 				hello@orsbert.com
 			</div>
-			<div className="connect-icons">
+			<div className="connect-icons center">
 				<Icon icon={twitterFill} className='nav-icon' />
 				<Icon icon={githubFill} className='nav-icon' />
 			</div>

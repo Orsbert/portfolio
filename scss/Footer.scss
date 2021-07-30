@@ -8,10 +8,15 @@ footer{
 	background: url(/images/footer-background.png);
 	height: 100vh;
 	color: white;
+	text-align: center;
 	.button{
-		margin: 5vh 0px;
+		margin: 3vh 0px;
+	}
+	.heading{
+		max-width: 60vw;
 	}
 	.connect-icons{
+		height: calc(20px + 2vw);
 		position: absolute;
 		bottom: 0px;
 		width: 100%;
