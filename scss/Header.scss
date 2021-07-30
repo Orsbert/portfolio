@@ -7,7 +7,7 @@
 	justify-content: center;
 	background-color: white;
 	text-align: center;
-	height: calc(100vh - 65.07px);
+	height: calc(100vh - 50px); // - nav height
 	.name-wrapper{
 		font-style: normal;
 		font-weight: bold;
@@ -16,18 +16,18 @@
 		justify-content: center;
 		align-items: center;
 		.avator{
-			height: 70px;
-			width: 70px;
+			height: calc(10px + 5vw);
+			width: calc(10px + 5vw);
 		}
 		.name{
-			font-size: 27px;
+			font-size: calc(1px + 3vw);
 		}
 	}
 	.occupation-big{
 		font-style: normal;
 		font-weight: bold;
-		font-size: 141px;
-		line-height: 172px;
+		font-size: calc(1px + 10vw);
+		line-height: calc(5px + 5vw);
 	}
 	.occupation-explain{
 		font-style: normal;

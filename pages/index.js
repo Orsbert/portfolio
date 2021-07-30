@@ -1,6 +1,8 @@
 import Head from 'next/head'
+import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { Nav } from '../components/Nav'
+import { PortfolioList } from '../components/PortfolioList'
 
 export default function Home() {
 
@@ -14,6 +16,8 @@ export default function Home() {
 			</Head>
 			<Nav/>
 			<Header/>
+			<PortfolioList/>
+			<Footer/>
 		</>
   )
 }

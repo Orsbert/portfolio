@@ -1,0 +1,20 @@
+footer{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding-top: 25vh;
+	align-items: center;
+	background-color: black;
+	background: url(/images/footer-background.png);
+	height: 100vh;
+	color: white;
+	.button{
+		margin: 5vh 0px;
+	}
+	.connect-icons{
+		position: absolute;
+		bottom: 0px;
+		width: 100%;
+		border-top: 1px solid #FCF7F7;
+	}
+}

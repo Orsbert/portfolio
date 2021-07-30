@@ -1,0 +1,52 @@
+@import 'variables';
+
+.portfolio-list{
+	background: url(/images/buttons-panel.png);
+	height: 100vh;
+	color: white;
+}
+
+.tags-wrapper{
+	padding: 40px 0px;
+	display: flex;
+	flex-wrap: wrap;
+	.tag{
+		border: 3px solid $secondary-color;
+		border-radius: 4px;
+		text-transform: uppercase;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 27px;
+		line-height: 33px;
+		color: $secondary-color;
+		padding: 5px;
+		margin: 5px;
+		white-space: nowrap;
+		transition: 0.3s background-color, 0.3s border;
+		cursor: default;
+		&:hover{
+			border-color: white;
+			background-color: white;
+			color: transparent !important;
+			box-shadow: 0px 0px 2px white;
+		}
+		&.tagged{
+			border-color: white;
+			color: white;
+			box-shadow: 0px 0px 2px white;
+		}
+		&.selected{
+			border-color: white;
+			background-color: white;
+			color: transparent;
+			box-shadow: 0px 0px 2px white;
+		}
+	}
+}
+
+.portfolio-thumbnails-wrapper{
+	display: flex;
+	.portfolio-thumbnail{
+		margin: 5px;
+	}
+}
