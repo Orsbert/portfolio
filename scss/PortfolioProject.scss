@@ -1,0 +1,24 @@
+@import 'variables';
+
+.portfolio-project{
+	background-color: black;
+	color: white;
+	.project-header{
+		display: flex;
+		position: sticky;
+		top: 0;
+		background-color: black;
+		z-index: 2;
+		box-shadow: 0px 0px 8px $primary-color;
+		.back-button{
+			background-color: white;
+			color: $secondary-color;
+			font-size: 44px;
+			white-space: nowrap;
+		}
+		.title{
+			width: 100%;
+			text-align: center;
+		}
+	}
+}
