@@ -92,6 +92,14 @@ a{
 	}
 }
 
+#mail-button{
+	position: fixed;
+	right: 3vw;
+	// top: 92vh;
+	z-index: 3;
+	transition: top 0.4s, bottom 0.4s;
+}
+
 @import 'Nav.scss';
 @import 'Header.scss';
 @import 'PortfolioList.scss';

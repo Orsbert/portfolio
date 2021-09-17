@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import { Icon } from '@iconify/react'
 import caretDownSquareFill from '@iconify/icons-bi/caret-down-square-fill'
+import { MailButtonPlaceholder } from './MailButton'
 
 export const Header = () => {
 	
@@ -40,9 +41,7 @@ export const Header = () => {
 				I help brands &amp; businesses design, develop, test, deploy and monitor web-based applications.
 			</div>
 			<div className="bottom-buttons-wrapper">
-				<div className="button primary">
-					hello@orsbert.com
-				</div>
+				<MailButtonPlaceholder pid='header' />
 				<div className='button down-arrow-wrapper'>
 					<Icon
 						icon={caretDownSquareFill}

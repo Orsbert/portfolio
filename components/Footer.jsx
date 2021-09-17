@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Icon } from '@iconify/react'
 import githubFill from '@iconify/icons-akar-icons/github-fill'
 import twitterFill from '@iconify/icons-akar-icons/twitter-fill'
+import { MailButtonPlaceholder } from './MailButton'
 
 export const Footer = () => {
+	const placeholderRef = useRef(null)
+
 	return (
 		<footer>
 			<div className="heading">
@@ -12,9 +15,7 @@ export const Footer = () => {
 			<div className="normal">
 				let’s talk
 			</div>
-			<div className="button primary">
-				hello@orsbert.com
-			</div>
+			<MailButtonPlaceholder pid='footer'/>
 			<div className="connect-icons center">
 				<Icon icon={twitterFill} className='nav-icon' />
 				<Icon icon={githubFill} className='nav-icon' />
