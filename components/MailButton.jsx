@@ -1,30 +1,30 @@
 import { motion, useViewportScroll } from 'framer-motion'
 import { observer } from 'mobx-react-lite'
 import { Icon } from '@iconify/react'
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import isElementInViewport from '../scripts/isElementInViewPort'
 import UserContext from '../scripts/Store'
 import mailFilled from '@iconify/icons-ant-design/mail-filled'
 
 export const MailButton = observer(() => {
 	const context = useContext(UserContext)
-	let buttonLeft = '0px'
+	let buttonWidth = '0px'
 	const { placeholderXPos, placeholderYPos, isVisible } = context.user
 	const ref = useRef(null)
+
 	if(ref.current) {
-		const {width: buttonWidth} = ref.current.getBoundingClientRect()
-		buttonLeft = isVisible ?
-		`calc(50vw - (${buttonWidth}px / 2))` : `calc(100vw - ${buttonWidth}px - 5px)`
+		buttonWidth = ref.current.getBoundingClientRect().width
 	}
+
+	const buttonLeft = isVisible? `calc(50vw - (${buttonWidth}px / 2))` : `calc(100vw - ${buttonWidth}px - 30px)`
 
 	return (
 		<motion.div
-			id='mail-button'
-			className={`button primary ${!isVisible && 'round'}`}
+			className={`button primary mail-button ${!isVisible ? 'round' : ''}`}
 			ref={ref}
 			style={{
-				left: buttonLeft,
 				top: placeholderYPos,
+				left: buttonLeft,
 			}}
 		>
 			{isVisible && 'hello@orsbert.com'}
@@ -39,6 +39,8 @@ export const MailButtonPlaceholder = () => {
 	const ref = useRef(null)
 
 	const context = useContext(UserContext)
+
+	const [visible, setVisible] = useState(true)
 
 
 	// listen for changes in y postion change
@@ -56,6 +58,8 @@ export const MailButtonPlaceholder = () => {
 					isVisible: true,
 				})
 
+				// setVisible(true)
+
 			}
 			else {
 				// is out of view
@@ -68,19 +72,22 @@ export const MailButtonPlaceholder = () => {
 				}
 				
 				prevInView = false
+
+				// setVisible(false)
+
 			}
 		}
 	})
 
 	return (
-		<div
+		<motion.div
 			ref={ref}
-			style={{
-				width: '54px',
-				overflow: 'hidden',
-			}}
+			initial={false}
+			style={{ position: 'static' }}
+			animate={{ opacity: visible ? '1' : '0' }}
+			transition={{delay: 0.1,}}
 		>
 			&nbsp;
-		</div>
+		</motion.div>
 	)
 }

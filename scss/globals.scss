@@ -53,10 +53,6 @@ body{
 	line-height: calc(15px + 1.8vw);
 }
 
-.round{
-	transition: all 0.4s;
-	border-radius: 50%;
-}
 
 // container from bootstrap
 .container {
@@ -97,9 +93,15 @@ a{
 	}
 }
 
-#mail-button{
+.mail-button{
 	position: fixed;
 	z-index: 3;
+	left: 100vw;
+	top: 100vh;
+	&.round{
+		border-radius: 50%;
+		transition: all 0.1s cubic-bezier(0,0,.58,1);
+	}
 }
 
 @import 'Nav.scss';

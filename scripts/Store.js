@@ -9,8 +9,6 @@ class myStore{
   }
 
   user = {}
-  usersOnline = {}
-  profiles = {}
   
   setUser = (data) => {
     this.user = {
