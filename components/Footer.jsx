@@ -5,7 +5,6 @@ import twitterFill from '@iconify/icons-akar-icons/twitter-fill'
 import { MailButtonPlaceholder } from './MailButton'
 
 export const Footer = () => {
-	const placeholderRef = useRef(null)
 
 	return (
 		<footer>
@@ -15,7 +14,7 @@ export const Footer = () => {
 			<div className="normal">
 				let’s talk
 			</div>
-			<MailButtonPlaceholder pid='footer'/>
+			<MailButtonPlaceholder tag={'footer'} />
 			<div className="connect-icons center">
 				<Icon icon={twitterFill} className='nav-icon' />
 				<Icon icon={githubFill} className='nav-icon' />

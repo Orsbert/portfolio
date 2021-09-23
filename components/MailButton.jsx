@@ -1,31 +1,48 @@
 import { motion, useViewportScroll } from 'framer-motion'
 import { observer } from 'mobx-react-lite'
 import { Icon } from '@iconify/react'
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import isElementInViewport from '../scripts/isElementInViewPort'
 import UserContext from '../scripts/Store'
 import mailFilled from '@iconify/icons-ant-design/mail-filled'
+import getClosestPlaceholder from '../scripts/getClosestPlaceholder'
+
+const animationDuration = 0.25
 
 export const MailButton = observer(() => {
 	const context = useContext(UserContext)
-	let buttonWidth = '0px'
-	const { placeholderXPos, placeholderYPos, isVisible } = context.user
+	const {
+		placeholderXPos,
+		placeholderXPosB4,
+		placeholderYPos,
+		placeholderYPosB4,
+		isVisible
+	} = context.user
 	const ref = useRef(null)
 
-	if(ref.current) {
-		buttonWidth = ref.current.getBoundingClientRect().width
-	}
+	console.log(placeholderXPos, placeholderYPos)
 
-	const buttonLeft = isVisible? `calc(50vw - (${buttonWidth}px / 2))` : `calc(100vw - ${buttonWidth}px - 30px)`
+	const variants = {
+		visible: {
+			opacity: [1, 1, 0],
+			top: placeholderYPos,
+			left: placeholderXPos,
+		},
+		notVisible: {
+			borderRadius: ['2%','50%'],
+			top: placeholderYPos,
+			left: placeholderXPos,
+		},
+	}
 
 	return (
 		<motion.div
-			className={`button primary mail-button ${!isVisible ? 'round' : ''}`}
+			className={`button primary mail-button`}
 			ref={ref}
-			style={{
-				top: placeholderYPos,
-				left: buttonLeft,
-			}}
+			// initial="visible"
+			animate={isVisible ? 'visible' : 'notVisible'}
+			variants={variants}
+			transition={{duration: animationDuration}}
 		>
 			{isVisible && 'hello@orsbert.com'}
 			{!isVisible && <Icon icon={mailFilled} style={{fontSize: '28px'}} />}
@@ -33,61 +50,119 @@ export const MailButton = observer(() => {
 	)
 })
 
-let prevInView = null
+let data = {}
 
-export const MailButtonPlaceholder = () => {
+let prevInView = null
+let placeholderXPos = null
+let placeholderYPos = null
+let scrollTimer = null
+
+// @ts-ignore
+export const MailButtonPlaceholder = observer(({tag}) => {
+
 	const ref = useRef(null)
 
+
 	const context = useContext(UserContext)
+	const { isVisible } = context.user
 
-	const [visible, setVisible] = useState(true)
-
-
+	
 	// listen for changes in y postion change
 	const { scrollYProgress } = useViewportScroll()
-	scrollYProgress.onChange(() => {
-		if (ref.current) {
-			var rect = ref.current.getBoundingClientRect()
-			if (isElementInViewport(ref.current)) {
-				
-				prevInView = true
-				
-				context.setUser({
+	useEffect(() => {
+
+		const { clientHeight, clientWidth } = document.documentElement
+
+		const cornerPoint = {
+			placeholderXPos: clientWidth - 60,
+			placeholderYPos: clientHeight*0.95 - 20
+		}
+		scrollYProgress.onChange(() => {
+
+			const { isVisible } = context.user
+
+			if (ref.current) {
+				var rect = ref.current.getBoundingClientRect()
+
+				// store the data
+				if (!data[tag]) {
+					// initialise data
+					data[tag] = {}
+				}
+				data[tag] = {
 					placeholderXPos: rect.left,
 					placeholderYPos: rect.top,
-					isVisible: true,
-				})
-
-				// setVisible(true)
-
-			}
-			else {
-				// is out of view
-				if (prevInView === false) {
-					context.setUser({
-						placeholderXPos: 20,
-						placeholderYPos: 'calc(95vh - 20px)',
-						isVisible: false,
-					})
 				}
-				
-				prevInView = false
 
-				// setVisible(false)
+				// get the tag of the closest placeholder
+				const closestPlaceholder = getClosestPlaceholder(data)
+
+				const isRectInViewport = isElementInViewport(ref.current)
+
+				if (tag === closestPlaceholder) {
+					if (isRectInViewport) {
+						if (isVisible === undefined || isVisible === false) { // first time ?
+
+							const updateState = () => {
+								console.log('scroll stopped closestPlaceholder->', closestPlaceholder)
+
+								context.setUser({
+									placeholderXPos: data[closestPlaceholder].placeholderXPos,
+									placeholderYPos: data[closestPlaceholder].placeholderYPos,
+									placeholderXPosB4: cornerPoint.placeholderXPos,
+									placeholderYPosB4: cornerPoint.placeholderYPos,
+									isVisible: isRectInViewport,
+								})
+							}
+
+
+							// since this is  a moving target, we are only doing it on scroll stop
+							if (scrollTimer !== null) {
+								clearTimeout(scrollTimer)
+							}
+							scrollTimer = setTimeout(updateState, 150)
+						}
+					}
+					else {
+						if (isVisible === undefined || isVisible === true) { // first time ?
+							context.setUser({
+								placeholderXPos: cornerPoint.placeholderXPos,
+								placeholderYPos: cornerPoint.placeholderYPos,
+								placeholderXPosB4: rect.left,
+								placeholderYPosB4: rect.top,
+								isVisible: isRectInViewport,
+							})
+						}
+					}
+				}
 
 			}
-		}
-	})
+		})
+	}, [isVisible])
+
+	const variants = {
+		visible: {
+			opacity: 1,
+		},
+		notVisible: {
+			opacity: [1, 0],
+			transition:{delay: animationDuration,}
+		},
+	}
 
 	return (
 		<motion.div
 			ref={ref}
-			initial={false}
-			style={{ position: 'static' }}
-			animate={{ opacity: visible ? '1' : '0' }}
-			transition={{delay: 0.1,}}
+			className='button primary mail-button'
+			style={{
+				position: 'static',
+			}}
+			initial={'visible'}
+			animate={(isVisible===undefined || isVisible)? 'visible' : 'notVisible'}
+			variants={variants}
 		>
-			&nbsp;
+			hello@orsbert.com
 		</motion.div>
 	)
 }
+)

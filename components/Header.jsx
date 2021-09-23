@@ -31,7 +31,7 @@ export const Header = () => {
 				I help brands &amp; businesses design, develop, test, deploy and monitor web-based applications.
 			</div>
 			<div className="bottom-buttons-wrapper">
-				<MailButtonPlaceholder />
+				<MailButtonPlaceholder tag={'header'} />
 				<br/>
 				<div className='button down-arrow-wrapper'>
 					<Icon

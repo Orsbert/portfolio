@@ -15,7 +15,6 @@ body{
 .button{
 	border-radius: calc(1px + 0.7vw);
 	padding: calc(5px + 0.42vw) calc(8px + 1.05vw);
-	display: flex;
 	align-items: center;
 	transition: background-color 0.3s;
 	&.primary{
