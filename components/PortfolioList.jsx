@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { MailButtonPlaceholder } from './MailButton'
+import { portfolioDataList } from '../scripts/portfolioData'
 
 export const Tags = () => {
 	return (
@@ -14,193 +14,30 @@ export const Tags = () => {
 	)
 }
 
-export const PortfolioThumbnails = () => {
+export const PortfolioThumbnail = ({slug, thumbnail}) => {
 	return (
-		<div className='portfolio-thumbnails-wrapper'>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
-			<div className="portfolio-thumbnail">
-				<Link href='/portfolio/spildram-project'>
-					<Image
-						src='https://via.placeholder.com/150'
-						height={150}
-						width={150}
-					/>
-				</Link>
-			</div>
+		<div className="portfolio-thumbnail" role='button'>
+			<Link href={`/portfolio/${slug}`}>
+				<Image
+					src={thumbnail}
+					height={150}
+					width={150}
+				/>
+			</Link>
 		</div>
 	)
 }
 
+
+export const PortfolioThumbnails = () => {
+	return (
+		<div className='portfolio-thumbnails-wrapper'>
+			{portfolioDataList.map(({slug, thumbnail}) => (
+					<PortfolioThumbnail slug={slug} thumbnail={thumbnail}/>
+			))}
+		</div>
+	)
+}
 
 
 export const PortfolioList = () => {
