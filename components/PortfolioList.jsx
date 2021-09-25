@@ -33,7 +33,7 @@ export const PortfolioThumbnails = () => {
 	return (
 		<div className='portfolio-thumbnails-wrapper'>
 			{portfolioDataList.map(({slug, thumbnail}) => (
-					<PortfolioThumbnail slug={slug} thumbnail={thumbnail}/>
+				<PortfolioThumbnail slug={slug} thumbnail={thumbnail} key={slug}/>
 			))}
 		</div>
 	)
@@ -44,7 +44,7 @@ export const PortfolioList = () => {
 	return (
 		<div className='portfolio-list'>
 			<div className="container">
-				<div id='portfolio-list-heading'  className="heading">Web developer portfolio</div>
+				<div id='portfolio-list-heading' className="heading">Web developer portfolio</div>
 				<br />
 				<div className="normal">
 				From 3D animations to React Js, Mobx, Graphql and Wordpress. Check out my latest web software development portfolio projects.

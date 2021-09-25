@@ -37,8 +37,8 @@ export const ProjectContent = ({data}) => {
 			</div>
 			<span className="sub-heading">About this Project</span>
 			{
-				data.informationList.map((text) => (
-					<span className="normal">{text} <br /></span>
+				data.informationList.map((text, i) => (
+					<span className="normal" key={i}>{text} <br /></span>
 				))
 			}
 			<br />
@@ -48,8 +48,8 @@ export const ProjectContent = ({data}) => {
 			<br />
 			<ul className='normal'>
 			{
-				data.techUsed.map((text) => (
-					<li>{text}</li>
+				data.techUsed.map((text, i) => (
+					<li key={i}>{text}</li>
 				))
 			}
 			</ul>
