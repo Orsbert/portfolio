@@ -52,7 +52,9 @@
 	display: flex;
 	padding: calc(15px + 0.5vw) 0px;
 	flex-wrap: wrap;
+	justify-content: center;
 	.portfolio-thumbnail{
-		padding: 5px;
+		display: block;
+		padding: calc(10px + 1vh) calc(10px + 0.5vw);
 	}
 }

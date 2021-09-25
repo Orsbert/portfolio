@@ -35,6 +35,7 @@ const portfolioData = {
 		slug: 'zicofe',
 		title: 'Zicofe',
 		link: 'https://zicofecafe.com/',
+		thumbnail: '/images/zicofe.png',
 		description: `Business website for a coffee cafe that displays offers, the menu
 		a gallery, detailed history of its founding, contact information and reviews from customers`,
 		informationList:[
@@ -55,6 +56,7 @@ const portfolioData = {
 		slug: 'nations-arise',
 		title: 'Nations Arise Revival Ministries',
 		link: 'https://nations-arise.org/',
+		thumbnail: '/images/nations_arise.png',
 		description: `Christian church for born-again christians whose focus is to impact different peoples 
 		lives with help from its partners and donations from the public.`,
 		informationList:[
@@ -80,6 +82,7 @@ const portfolioData = {
 		slug: 'mfrika',
 		title: 'Mfrika',
 		link: 'https://mfrika.com/',
+		thumbnail: '/images/mfrika.png',
 		description: `Africa is strikingly beautiful, and that is what we are focused on. Enjoying African themed 
 		clothing, diverse cultures, and typical African character. All of our designs are drawn by hand by African
 		fashion designers and incredibly talented artists.`,
@@ -102,6 +105,7 @@ const portfolioData = {
 		slug: 'kabbastore',
 		title: 'Kabba Store',
 		link: 'https://kabbastore.com/',
+		thumbnail: '/images/kabbastore.png',
 		description: `Kabba Store is an online marketplace for fashion, confectioneries, electronics, and among others targeting 
 		Ugandans. It is also a logistics service, which enables the shipment and delivery of packages from sellers to consumers,
 		and a payment service. It has partnered with different sellers to ease your shopping life with quality in variety.`,

@@ -27,12 +27,12 @@ export const ProjectContent = ({data}) => {
 			</span>
 			<br />
 			<br />
-			<div className="image-wrapper center">
+			<div className="image-wrapper">
 				<Image
 					src={data.thumbnail}
-					// layout='responsive'
-					height={500}
-					width={500}
+					layout='responsive'
+					height={654}
+					width={1349}
 				/>
 			</div>
 			<span className="sub-heading">About this Project</span>

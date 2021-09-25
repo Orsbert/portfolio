@@ -6,10 +6,10 @@ import { portfolioDataList } from '../scripts/portfolioData'
 export const Tags = () => {
 	return (
 		<div className='tags-wrapper container'>
-			<div className="tag">show all</div>
-			<div className="tag tagged">react</div>
-			<div className="tag selected">sass</div>
-			<div className="tag">javascript</div>
+			<div className="tag" role='button'>show all</div>
+			<div className="tag tagged" role='button'>react</div>
+			<div className="tag selected" role='button'>sass</div>
+			<div className="tag" role='button'>javascript</div>
 		</div>
 	)
 }
@@ -21,7 +21,7 @@ export const PortfolioThumbnail = ({slug, thumbnail}) => {
 				<Image
 					src={thumbnail}
 					height={150}
-					width={150}
+					width={309.4}
 				/>
 			</Link>
 		</div>
