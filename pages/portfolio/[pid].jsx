@@ -4,13 +4,21 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ErrorPage from 'next/error'
 import { getPortfolio } from '../../scripts/portfolioData'
+import { InlineIcon } from '@iconify/react'
+import newTab from '@iconify/icons-icomoon-free/new-tab'
 
 export const ProjectHeader = ({title}) => {
 
 	return (
 		<div id='project-header' className="project-header">
 			<Link href='/#portfolio-list-heading'>
-				<div className="button back-button" role='button'>{'>|<'}</div>
+				<div
+					className="button back-button"
+					role='button'
+					title={`close`}
+				>
+					{'>|<'}
+				</div>
 			</Link>
 			<div className="title">{title}</div>
 		</div>
@@ -23,9 +31,20 @@ export const ProjectContent = ({data}) => {
 			<span className="normal">
 				{data.description}
 				<br/>
-				<Link href={data.link}>visit the website</Link>
+				<a
+					href={data.link}
+					title={`open ${data.title}`}
+				>
+					<span>visit the website </span>
+				</a>
+				<a
+					href={data.link}
+					target='_blank'
+					title={`open ${data.title} in new tab`}
+				>
+					<InlineIcon icon={newTab} width="26" />
+				</a>
 			</span>
-			<br />
 			<br />
 			<div className="image-wrapper">
 				<Image
@@ -42,11 +61,10 @@ export const ProjectContent = ({data}) => {
 				))
 			}
 			<br />
-			<br />
 			<span className="sub-heading">Technical Sheet</span>
 			<span className="normal">Code technologies used in this project.</span>
 			<br />
-			<ul className='normal'>
+			<ul className='normal container'>
 			{
 				data.techUsed.map((text, i) => (
 					<li key={i}>{text}</li>

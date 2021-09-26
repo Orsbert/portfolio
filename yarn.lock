@@ -130,10 +130,15 @@
   resolved "https://registry.yarnpkg.com/@iconify/icons-bi/-/icons-bi-1.1.5.tgz#a0222facbbcb22489c6faf7648e3662b732605d1"
   integrity sha512-aDxe8WGt9KovnzzBSi5m4WR/OQ6bjx3x85jxhiCM/ylTZtPwMGUZyuNY7hU7ECV8QFci/IMUNHRmz3epm88/+w==
 
-"@iconify/react@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@iconify/react/-/react-1.1.4.tgz#c778eddbaf196e55705d0bedff00d039dc1de8d3"
-  integrity sha512-oxq8IMOq8q3nKGiDHbQPC8FcFuBsKve68JWBo140d5LRnj0bv5TB/FE/y01ZSvEZ7PlI2HIrnb2qivPN8kTDgw==
+"@iconify/icons-icomoon-free@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-icomoon-free/-/icons-icomoon-free-1.1.0.tgz#78d0661816f862286e3832a2b46f01d77f746722"
+  integrity sha512-h53jEJe5n82nFasgnMNoru6u9AwUIjcPwi9WTwxIQcIY886W3iNtWfqROomUTAetUK4+eSnZz5xEWSuTacYkFw==
+
+"@iconify/react@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@iconify/react/-/react-3.0.1.tgz#ce2cb3f4a2b6aab5f7af082c833d869b6fb43182"
+  integrity sha512-yUskSSR80JzRSWcqNsBAG9AN802XzZgHsex8mTOkMLYcPQC3fk1XwK17ulnY5vf692OafhGCAMccR8TWKFaGdw==
 
 "@next/env@11.0.1":
   version "11.0.1"

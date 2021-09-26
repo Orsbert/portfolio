@@ -29,9 +29,12 @@ export const MailButton = observer(() => {
 			left: placeholderXPos,
 		},
 		notVisible: {
-			borderRadius: ['2%','50%'],
+			borderRadius: ['2%', '45%', '50%'],
 			top: placeholderYPos,
 			left: placeholderXPos,
+			innerHeight: 35,
+			innerWeight: 35,
+			display: 'flex',
 		},
 	}
 
@@ -42,7 +45,10 @@ export const MailButton = observer(() => {
 			// initial="visible"
 			animate={isVisible ? 'visible' : 'notVisible'}
 			variants={variants}
-			transition={{duration: animationDuration}}
+			transition={{
+				duration: animationDuration,
+				times: [0, 0.9, 1],
+			}}
 		>
 			{isVisible && 'hello@orsbert.com'}
 			{!isVisible && <Icon icon={mailFilled} style={{fontSize: '28px'}} />}
@@ -75,7 +81,7 @@ export const MailButtonPlaceholder = observer(({tag}) => {
 
 		const cornerPoint = {
 			placeholderXPos: clientWidth - 60,
-			placeholderYPos: clientHeight*0.95 - 20
+			placeholderYPos: clientHeight - 60,
 		}
 		scrollYProgress.onChange(() => {
 
@@ -142,11 +148,14 @@ export const MailButtonPlaceholder = observer(({tag}) => {
 
 	const variants = {
 		visible: {
-			opacity: 1,
+			opacity: [0, 1],
+			transition: {
+				duration: 0.3,
+				delay: animationDuration,
+			}
 		},
 		notVisible: {
-			opacity: [1, 0],
-			transition:{delay: animationDuration,}
+			opacity: 0,
 		},
 	}
 
@@ -157,7 +166,7 @@ export const MailButtonPlaceholder = observer(({tag}) => {
 			style={{
 				position: 'static',
 			}}
-			initial={'visible'}
+			initial={'notVisible'}
 			animate={(isVisible===undefined || isVisible)? 'visible' : 'notVisible'}
 			variants={variants}
 		>

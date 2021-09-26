@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
-import { MailButton } from '../components/MailButton'
 import { Nav } from '../components/Nav'
 import { PortfolioList } from '../components/PortfolioList'
 
@@ -19,7 +18,6 @@ export default function Home() {
 			<Header/>
 			<PortfolioList/>
 			<Footer />
-			<MailButton/>
 		</>
   )
 }
