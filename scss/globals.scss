@@ -105,10 +105,6 @@ a{
 	z-index: 3;
 	left: 100vw;
 	top: 100vh;
-	&.round{
-		border-radius: 50%;
-		transition: all 0.1s cubic-bezier(0,0,.58,1);
-	}
 }
 
 footer{

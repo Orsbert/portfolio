@@ -22,6 +22,7 @@ export const PortfolioThumbnail = ({slug, thumbnail}) => {
 					src={thumbnail}
 					height={150}
 					width={309.4}
+					alt={slug}
 				/>
 			</Link>
 		</div>

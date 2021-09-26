@@ -40,6 +40,7 @@ export const ProjectContent = ({data}) => {
 				<a
 					href={data.link}
 					target='_blank'
+					rel="noreferrer"
 					title={`open ${data.title} in new tab`}
 				>
 					<InlineIcon icon={newTab} width="26" />
@@ -52,6 +53,7 @@ export const ProjectContent = ({data}) => {
 					layout='responsive'
 					height={654}
 					width={1349}
+					alt={data.title}
 				/>
 			</div>
 			<span className="sub-heading">About this Project</span>
