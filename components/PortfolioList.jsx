@@ -44,7 +44,7 @@ export const Tags = () => {
 			{
 				tagsList.map(tag => (
 					// @ts-ignore
-					<Tag tag={tag}/>
+					<Tag tag={tag} key={tag}/>
 				))
 			}
 		</div>
