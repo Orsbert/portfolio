@@ -1,22 +1,13 @@
 const Portfolio = ({
-	slug= 'spildram-project',
-	title= 'Spildram',
-	thumbnail= 'https://via.placeholder.com/150',
-	logo= 'https://via.placeholder.com/48',
-	description= 'Social media platform for medical students and personel developed as the developer and UI designer.',
-	link= 'https://spildram.com',
-	informationList= [
-		`On this project, I was the developer and UI designer. I was responsible for the
-		UI architecture, the frontend and backend development. The idea was to combine a social network with a study application.`,
-		`The UI was concieved as mobile first approach since most of the expected users use mobile the most.`,
-	],
-	techUsed= [
-		'Figma',
-		'React js',
-		'CSS - scripted with SASS',
-		'Graphql',
-		'Ant design',
-	]
+	slug= '',
+	title= '',
+	thumbnail= '',
+	logo= '',
+	description= '',
+	link= '',
+	informationList= [],
+	techUsed= [],
+	tags = [],
 }) => {
 	return {
 		slug,
@@ -26,7 +17,8 @@ const Portfolio = ({
 		description,
 		link,
 		informationList,
-		techUsed
+		techUsed,
+		tags,
 	}
 }
 
@@ -50,7 +42,12 @@ const portfolioData = {
 			'CSS - scripted with SASS',
 			'PHP',
 			'Javascript',
-		]
+		],
+		tags: [
+			'css',
+			'php',
+			'javascript',
+		],
 	}),
 	'nations-arise': Portfolio({
 		slug: 'nations-arise',
@@ -76,7 +73,13 @@ const portfolioData = {
 			'Javascript',
 			'PHP',
 			'Wordpress',
-		]
+		],
+		tags: [
+			'css',
+			'javascript',
+			'php',
+			'wordpress',
+		],
 	}),
 	'mfrika': Portfolio({
 		slug: 'mfrika',
@@ -99,7 +102,12 @@ const portfolioData = {
 			'CSS - scripted with SASS',
 			'Javascript',
 			'PHP',
-		]
+		],
+		tags: [
+			'css',
+			'javascript',
+			'php',
+		],
 	}),
 	'kabbastore': Portfolio({
 		slug: 'kabbastore',
@@ -123,7 +131,13 @@ const portfolioData = {
 			'PHP',
 			'Wordpress',
 			'Woo commerce plugin',
-		]
+		],
+		tags: [
+			'css',
+			'javascript',
+			'php',
+			'wordpress',
+		],
 	}),
 }
 
@@ -136,6 +150,23 @@ export const getPortfolio = (slug) => {
 	else {
 		return null
 	}
+}
+
+export const getTagsList = () => {
+	const dataList = portfolioDataList
+	
+	let tagsList = []
+
+	for (let index = 0; index < dataList.length; index++) {
+		const { tags } = dataList[index]
+		for (const i in tags) {
+			if (!tagsList.includes(tags[i])) {
+				tagsList.push(tags[i])
+			}
+		}
+	}
+
+	return tagsList
 }
 
 export default portfolioData

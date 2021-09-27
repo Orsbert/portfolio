@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -6,11 +6,54 @@ import ErrorPage from 'next/error'
 import { getPortfolio } from '../../scripts/portfolioData'
 import { InlineIcon } from '@iconify/react'
 import newTab from '@iconify/icons-icomoon-free/new-tab'
+import { motion, useViewportScroll } from 'framer-motion'
+import { observer } from 'mobx-react-lite'
+import UserContext from '../../scripts/Store'
 
-export const ProjectHeader = ({title}) => {
+let scrollDirection = 'down' // 'down' || 'up'
+let scrollYProgressValue = 0
+
+// @ts-ignore
+export const ProjectHeader = observer(({ title }) => {
+
+	const context = useContext(UserContext)
+	const { stateScrollDirection } = context.user
+	
+	// listen for changes in y postion change
+	const { scrollYProgress } = useViewportScroll()
+
+	useEffect(() => (
+		scrollYProgress.onChange((latest) => {
+			const { stateScrollDirection } = context.user
+			
+			// compare with prev value && determine direction
+			scrollDirection = (latest > scrollYProgressValue)? 'down': 'up'
+			// set state if neccessary
+			if (scrollDirection !== stateScrollDirection) { // only new
+				context.setUser({ stateScrollDirection: scrollDirection })
+			}
+			// store value
+			scrollYProgressValue = latest
+		})
+	),[scrollDirection])
+
+	const headerTitleVariants = {
+		up: {
+			paddingLeft: '10px',
+			fontSize: '18px',
+		},
+		down: {
+			paddingLeft: '20vw',
+		},
+	}
 
 	return (
-		<div id='project-header' className="project-header">
+		<motion.div
+			id='project-header'
+			className="project-header"
+			// initial={'down'}
+			animate={(stateScrollDirection==='up')? 'up': 'down'}
+		>
 			<Link href='/#portfolio-list-heading'>
 				<div
 					className="button back-button"
@@ -20,10 +63,15 @@ export const ProjectHeader = ({title}) => {
 					{'>|<'}
 				</div>
 			</Link>
-			<div className="title">{title}</div>
-		</div>
+			<motion.div
+				className="title"
+				variants={headerTitleVariants}
+			>
+				{title}
+			</motion.div>
+		</motion.div>
 	)
-}
+})
 
 export const ProjectContent = ({data}) => {
 	return (
@@ -43,7 +91,7 @@ export const ProjectContent = ({data}) => {
 					rel="noreferrer"
 					title={`open ${data.title} in new tab`}
 				>
-					<InlineIcon icon={newTab} width="26" />
+					<InlineIcon icon={newTab} width="24" />
 				</a>
 			</span>
 			<br />

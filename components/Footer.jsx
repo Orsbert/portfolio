@@ -1,8 +1,6 @@
 import React, { useRef } from 'react'
-import { Icon } from '@iconify/react'
-import githubFill from '@iconify/icons-akar-icons/github-fill'
-import twitterFill from '@iconify/icons-akar-icons/twitter-fill'
 import { MailButtonPlaceholder } from './MailButton'
+import { GithubLink, TwitterLink } from './Nav'
 
 export const Footer = () => {
 
@@ -16,8 +14,8 @@ export const Footer = () => {
 			</div>
 			<MailButtonPlaceholder tag={'footer'} />
 			<div className="connect-icons center">
-				<Icon icon={twitterFill} className='nav-icon' />
-				<Icon icon={githubFill} className='nav-icon' />
+				<TwitterLink/>
+				<GithubLink/>
 			</div>
 		</footer>
 	)

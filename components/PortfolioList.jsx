@@ -1,44 +1,107 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { portfolioDataList } from '../scripts/portfolioData'
+import { getTagsList, portfolioDataList } from '../scripts/portfolioData'
+import { observer } from 'mobx-react-lite'
+import UserContext from '../scripts/Store'
+import { motion } from 'framer-motion'
+
+// @ts-ignore
+export const Tag = observer(({ tag }) => {
+
+	const context = useContext(UserContext)
+	const { selectedTag, tagsTagged } = context.user
+	let tagged = false
+
+	if (tagsTagged) {
+		tagged = tagsTagged.includes(tag)
+	}
+
+	const handleClick = () => {
+		context.setUser({ selectedTag: tag })
+	}
+
+	return (
+		<div
+			className={`tag ${(tag===selectedTag)? 'selected':(tagged)? 'tagged':''}`}
+			role='button'
+			key={tag}
+			onClick={handleClick}
+		>
+			{tag}
+		</div>
+	)
+})
+
+
+const tagsList = getTagsList()
 
 export const Tags = () => {
 	return (
 		<div className='tags-wrapper container'>
-			<div className="tag" role='button'>show all</div>
-			<div className="tag tagged" role='button'>react</div>
-			<div className="tag selected" role='button'>sass</div>
-			<div className="tag" role='button'>javascript</div>
+			{/* @ts-ignore */}
+			<Tag tag={'show all'}/>
+			{
+				tagsList.map(tag => (
+					// @ts-ignore
+					<Tag tag={tag}/>
+				))
+			}
 		</div>
 	)
 }
 
-export const PortfolioThumbnail = ({slug, thumbnail}) => {
+// @ts-ignore
+export const PortfolioThumbnail = ({ slug, thumbnail, tags }) => {
+	const context = useContext(UserContext)
+	
+	const handleMouseEnter = () => {
+		context.setUser({tagsTagged: tags})
+	}
+	
+	const handleMouseLeave = () => {
+		context.setUser({tagsTagged: []})
+	}
+	
 	return (
-		<div className="portfolio-thumbnail" role='button'>
+		<motion.div
+			className="portfolio-thumbnail"
+			role='button'
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+			layout
+		>
 			<Link href={`/portfolio/${slug}`}>
-				<Image
-					src={thumbnail}
-					height={150}
-					width={309.4}
-					alt={slug}
-				/>
+				<a>
+					<Image
+						src={thumbnail}
+						height={150}
+						width={309.4}
+						alt={slug}
+					/>
+				</a>
 			</Link>
-		</div>
+		</motion.div>
 	)
 }
 
 
-export const PortfolioThumbnails = () => {
+export const PortfolioThumbnails = observer(() => {
+
+	const context = useContext(UserContext)
+	const { selectedTag } = context.user
+
+	const filtered = (selectedTag === 'show all') ?
+		portfolioDataList : portfolioDataList.filter(portfolio => portfolio.tags.includes(selectedTag))
+
 	return (
-		<div className='portfolio-thumbnails-wrapper'>
-			{portfolioDataList.map(({slug, thumbnail}) => (
-				<PortfolioThumbnail slug={slug} thumbnail={thumbnail} key={slug}/>
+		<motion.ul className='portfolio-thumbnails-wrapper' layout>
+			{filtered.map(({slug, thumbnail, tags}) => (
+				<PortfolioThumbnail slug={slug} thumbnail={thumbnail} tags={tags} key={slug}/>
 			))}
-		</div>
+		</motion.ul>
 	)
-}
+})
 
 
 export const PortfolioList = () => {

@@ -20,8 +20,6 @@ export const MailButton = observer(() => {
 	} = context.user
 	const ref = useRef(null)
 
-	console.log(placeholderXPos, placeholderYPos)
-
 	const variants = {
 		visible: {
 			opacity: [1, 1, 0],
@@ -73,15 +71,14 @@ export const MailButtonPlaceholder = observer(({tag}) => {
 	
 	// listen for changes in y postion change
 	const { scrollYProgress } = useViewportScroll()
-	useEffect(() => {
-
-		const { clientHeight, clientWidth } = document.documentElement
-
-		const cornerPoint = {
-			placeholderXPos: clientWidth - 60,
-			placeholderYPos: clientHeight - 60,
-		}
+	useEffect(() => (
 		scrollYProgress.onChange(() => {
+			const { clientHeight, clientWidth } = document.documentElement
+	
+			const cornerPoint = {
+				placeholderXPos: clientWidth - 60,
+				placeholderYPos: clientHeight - 60,
+			}
 
 			const { isVisible } = context.user
 
@@ -108,8 +105,6 @@ export const MailButtonPlaceholder = observer(({tag}) => {
 						if (isVisible === false) {  // no first timers
 
 							const updateState = () => {
-								console.log('scroll stopped closestPlaceholder->', closestPlaceholder)
-
 								context.setUser({
 									placeholderXPos: data[closestPlaceholder].placeholderXPos,
 									placeholderYPos: data[closestPlaceholder].placeholderYPos,
@@ -142,7 +137,7 @@ export const MailButtonPlaceholder = observer(({tag}) => {
 
 			}
 		})
-	}, [isVisible])
+	), [isVisible])
 
 	const variants = {
 		visible: {

@@ -8,7 +8,9 @@ class myStore{
     })
   }
 
-  user = {}
+	user = {
+		selectedTag: 'show all',
+	}
   
   setUser = (data) => {
     this.user = {
