@@ -42,7 +42,7 @@ export const MailButton = observer(() => {
 		<motion.div
 			className={`button primary mail-button`}
 			ref={ref}
-			// initial="visible"
+			initial="visible"
 			animate={isVisible ? 'visible' : 'notVisible'}
 			variants={variants}
 			transition={{
@@ -58,9 +58,7 @@ export const MailButton = observer(() => {
 
 let data = {}
 
-let prevInView = null
-let placeholderXPos = null
-let placeholderYPos = null
+
 let scrollTimer = null
 
 // @ts-ignore
@@ -70,7 +68,7 @@ export const MailButtonPlaceholder = observer(({tag}) => {
 
 
 	const context = useContext(UserContext)
-	const { isVisible } = context.user
+	const { isVisible=false } = context.user
 
 	
 	// listen for changes in y postion change
@@ -107,7 +105,7 @@ export const MailButtonPlaceholder = observer(({tag}) => {
 
 				if (tag === closestPlaceholder) {
 					if (isRectInViewport) {
-						if (isVisible === undefined || isVisible === false) { // first time ?
+						if (isVisible === false) {  // no first timers
 
 							const updateState = () => {
 								console.log('scroll stopped closestPlaceholder->', closestPlaceholder)
