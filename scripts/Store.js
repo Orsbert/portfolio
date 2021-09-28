@@ -10,6 +10,7 @@ class myStore{
 
 	user = {
 		selectedTag: 'show all',
+		stateScrollDirection: 'top',
 	}
   
   setUser = (data) => {

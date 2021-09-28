@@ -26,24 +26,43 @@ export const ProjectHeader = observer(({ title }) => {
 		scrollYProgress.onChange((latest) => {
 			const { stateScrollDirection } = context.user
 			
+			const diff = Math.abs(latest - scrollYProgressValue)
+
+			const scrollDiffThreshold = 0.02 // calibrating
+
 			// compare with prev value && determine direction
-			scrollDirection = (latest > scrollYProgressValue)? 'down': 'up'
-			// set state if neccessary
+			if (diff > scrollDiffThreshold || stateScrollDirection === 'top') {
+				scrollDirection = (latest > scrollYProgressValue)? 'down': 'up'
+			}
+
+			scrollDirection = (latest === 0) ? 'top' : scrollDirection
+			
+			// update state if neccessary
 			if (scrollDirection !== stateScrollDirection) { // only new
 				context.setUser({ stateScrollDirection: scrollDirection })
 			}
+
 			// store value
 			scrollYProgressValue = latest
 		})
 	),[scrollDirection])
 
 	const headerTitleVariants = {
+		top: {
+			paddingTop: '60px',
+			width: `calc(${title.length}ch + 50px)`,
+		},
 		up: {
-			paddingLeft: '10px',
-			fontSize: '18px',
+			width: `calc(${title.length}ch + 50px)`,
 		},
 		down: {
-			paddingLeft: '20vw',
+			width: '90%',
+		},
+	}
+
+	const headerVariants = {
+		top: {
+			borderBottomWidth: '0px',
 		},
 	}
 
@@ -51,8 +70,10 @@ export const ProjectHeader = observer(({ title }) => {
 		<motion.div
 			id='project-header'
 			className="project-header"
-			// initial={'down'}
-			animate={(stateScrollDirection==='up')? 'up': 'down'}
+			// initial={'top'}
+			animate={stateScrollDirection}
+			variants={headerVariants}
+			transition={{type: 'tween', ease: 'linear'}}
 		>
 			<Link href='/#portfolio-list-heading'>
 				<div
@@ -63,12 +84,14 @@ export const ProjectHeader = observer(({ title }) => {
 					{'>|<'}
 				</div>
 			</Link>
-			<motion.div
-				className="title"
-				variants={headerTitleVariants}
-			>
-				{title}
-			</motion.div>
+			<div className="title-wrapper">
+				<motion.div
+					className="title"
+					variants={headerTitleVariants}
+				>
+					{title}
+				</motion.div>
+			</div>
 		</motion.div>
 	)
 })
