@@ -130,6 +130,11 @@
   resolved "https://registry.yarnpkg.com/@iconify/icons-bi/-/icons-bi-1.1.5.tgz#a0222facbbcb22489c6faf7648e3662b732605d1"
   integrity sha512-aDxe8WGt9KovnzzBSi5m4WR/OQ6bjx3x85jxhiCM/ylTZtPwMGUZyuNY7hU7ECV8QFci/IMUNHRmz3epm88/+w==
 
+"@iconify/icons-bx@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-bx/-/icons-bx-1.1.2.tgz#fbc5785c5a1c128abbacdeb19662d2f657f230eb"
+  integrity sha512-lXOnYmAODBraAvt1WIKcrfsXupgqU+Gv+tVh9GkKkyrwX5DsR0O6GMwfjPO5wTZGHzYpH7t57dXMlV3opz4Nlg==
+
 "@iconify/icons-icomoon-free@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@iconify/icons-icomoon-free/-/icons-icomoon-free-1.1.0.tgz#78d0661816f862286e3832a2b46f01d77f746722"

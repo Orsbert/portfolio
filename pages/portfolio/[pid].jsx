@@ -9,6 +9,8 @@ import newTab from '@iconify/icons-icomoon-free/new-tab'
 import { motion, useViewportScroll } from 'framer-motion'
 import { observer } from 'mobx-react-lite'
 import UserContext from '../../scripts/Store'
+import { Icon } from '@iconify/react'
+import bxArrowBack from '@iconify/icons-bx/bx-arrow-back'
 
 let scrollDirection = 'down' // 'down' || 'up'
 let scrollYProgressValue = 0
@@ -50,7 +52,7 @@ export const ProjectHeader = observer(({ title }) => {
 	const headerTitleVariants = {
 		top: {
 			paddingTop: '60px',
-			// width: `calc(${title.length}ch + 50px)`,
+			width: `calc(${title.length}ch + 50px)`,
 		},
 		up: {
 			paddingTop: '0px',
@@ -59,7 +61,7 @@ export const ProjectHeader = observer(({ title }) => {
 		down: {
 			paddingTop: '0px',
 			fontSize: '32px',
-			// width: '90%',
+			// width: `calc(${title.length}ch + 50px)`,
 		},
 	}
 
@@ -84,7 +86,10 @@ export const ProjectHeader = observer(({ title }) => {
 					role='button'
 					title={`close`}
 				>
-					{'>|<'}
+					<Icon
+						icon={bxArrowBack}
+						fontSize={36}
+					/>
 				</div>
 			</Link>
 			<div className="title-wrapper">
