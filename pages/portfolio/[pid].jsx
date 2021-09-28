@@ -31,11 +31,11 @@ export const ProjectHeader = observer(({ title }) => {
 			const scrollDiffThreshold = 0.02 // calibrating
 
 			// compare with prev value && determine direction
-			if (diff > scrollDiffThreshold || stateScrollDirection === 'top') {
-				scrollDirection = (latest > scrollYProgressValue)? 'down': 'up'
-			}
+			// if (diff > scrollDiffThreshold || stateScrollDirection === 'top') {
+			// 	scrollDirection = (latest > scrollYProgressValue)? 'down': 'up'
+			// }
 
-			scrollDirection = (latest === 0) ? 'top' : scrollDirection
+			scrollDirection = (latest === 0) ? 'top' : (latest < 0.4) ? 'up' : 'down'
 			
 			// update state if neccessary
 			if (scrollDirection !== stateScrollDirection) { // only new
@@ -50,13 +50,16 @@ export const ProjectHeader = observer(({ title }) => {
 	const headerTitleVariants = {
 		top: {
 			paddingTop: '60px',
-			width: `calc(${title.length}ch + 50px)`,
+			// width: `calc(${title.length}ch + 50px)`,
 		},
 		up: {
-			width: `calc(${title.length}ch + 50px)`,
+			paddingTop: '0px',
+			// width: `calc(${title.length}ch + 50px)`,
 		},
 		down: {
-			width: '90%',
+			paddingTop: '0px',
+			fontSize: '32px',
+			// width: '90%',
 		},
 	}
 
@@ -70,7 +73,7 @@ export const ProjectHeader = observer(({ title }) => {
 		<motion.div
 			id='project-header'
 			className="project-header"
-			// initial={'top'}
+			initial={'top'}
 			animate={stateScrollDirection}
 			variants={headerVariants}
 			transition={{type: 'tween', ease: 'linear'}}

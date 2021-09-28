@@ -56,6 +56,23 @@
 	justify-content: center;
 	.portfolio-thumbnail{
 		display: block;
-		padding: calc(10px + 1vh) calc(10px + 0.5vw);
+		margin: calc(10px + 1vh) calc(10px + 0.5vw);
+		border: 1px solid $secondary-color;
+		transition: all 0.2s;
+		&:hover{
+			border-color: white;
+			.title{
+				background-color: white;
+				color: $primary-color;
+			}
+		}
+		.title{
+			background-color: $secondary-color;
+			padding: 2px 5px;
+			color: white;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			width: 100%;
+		}
 	}
 }
