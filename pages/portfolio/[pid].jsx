@@ -167,7 +167,10 @@ const PortfolioProject = () => {
 				<title>{data.title}</title>
 			</head>
 			<div className='portfolio-project'>
-				<ProjectHeader title={data.title}/>
+				<ProjectHeader 
+					// @ts-ignore
+					title={data.title}
+				/>
 				<ProjectContent data={data}/>
 			</div>
 		</>

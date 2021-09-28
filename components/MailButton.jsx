@@ -27,11 +27,10 @@ export const MailButton = observer(() => {
 			left: placeholderXPos,
 		},
 		notVisible: {
-			borderRadius: ['2%', '45%', '50%'],
+			borderRadius: ['2%', '5%', '50%'],
 			top: placeholderYPos,
 			left: placeholderXPos,
-			innerHeight: 35,
-			innerWeight: 35,
+			innerWidth: 20,
 			display: 'flex',
 		},
 	}
@@ -48,8 +47,16 @@ export const MailButton = observer(() => {
 				times: [0, 0.9, 1],
 			}}
 		>
-			{isVisible && 'hello@orsbert.com'}
-			{!isVisible && <Icon icon={mailFilled} style={{fontSize: '28px'}} />}
+			<a href='mailto:hello@orsbert.com'>
+				{isVisible && 'hello@orsbert.com'}
+				{!isVisible && (<Icon
+					icon={mailFilled}
+					style={{
+						fontSize: '28px',
+						margin: '0px 2.625px', // square out
+					}}
+				/>)}
+			</a>
 		</motion.div>
 	)
 })
@@ -76,8 +83,8 @@ export const MailButtonPlaceholder = observer(({tag}) => {
 			const { clientHeight, clientWidth } = document.documentElement
 	
 			const cornerPoint = {
-				placeholderXPos: clientWidth - 60,
-				placeholderYPos: clientHeight - 60,
+				placeholderXPos: clientWidth - 65,
+				placeholderYPos: clientHeight - 65,
 			}
 
 			const { isVisible } = context.user
