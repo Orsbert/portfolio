@@ -32,12 +32,13 @@
 			display: flex;
 			width: 100%;
 			justify-content: center;
+			overflow: hidden;
 			.title{
 				font-weight: bold;
 				font-size: calc(28px + 2.3vw);
 				text-overflow: ellipsis;
-				overflow: hidden;
 				white-space: nowrap;
+				overflow: hidden;
 				opacity: 0.9;
 			}
 		}
