@@ -11,6 +11,7 @@ import { observer } from 'mobx-react-lite'
 import UserContext from '../../scripts/Store'
 import { Icon } from '@iconify/react'
 import bxArrowBack from '@iconify/icons-bx/bx-arrow-back'
+import { NextSeo } from 'next-seo'
 
 let scrollDirection = 'down' // 'down' || 'up'
 let scrollYProgressValue = 0
@@ -167,12 +168,12 @@ const PortfolioProject = () => {
 		return <ErrorPage statusCode={404}/>
 	}
 
-
 	return (
 		<>
-			<head>
-				<title>{data.title}</title>
-			</head>
+			<NextSeo
+				title={data.title}
+				description={data.description}
+			/>
 			<div className='portfolio-project'>
 				<ProjectHeader 
 					// @ts-ignore
