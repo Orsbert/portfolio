@@ -44,9 +44,8 @@ const portfolioData = {
 			'Javascript',
 		],
 		tags: [
-			'css',
-			'php',
 			'javascript',
+			'php',
 		],
 	}),
 	'nations-arise': Portfolio({
@@ -75,7 +74,6 @@ const portfolioData = {
 			'Wordpress',
 		],
 		tags: [
-			'css',
 			'javascript',
 			'php',
 			'wordpress',
@@ -104,7 +102,6 @@ const portfolioData = {
 			'PHP',
 		],
 		tags: [
-			'css',
 			'javascript',
 			'php',
 		],
@@ -133,10 +130,31 @@ const portfolioData = {
 			'Woo commerce plugin',
 		],
 		tags: [
-			'css',
 			'javascript',
 			'php',
 			'wordpress',
+		],
+	}),
+	'portfolio': Portfolio({
+		slug: 'portfolio',
+		title: 'My Portfolio',
+		link: 'https://orsbert.com/',
+		thumbnail: '/images/portfolio.png',
+		description: `This is my Web Development Portfolio website. It is basically where you are right now.`,
+		informationList:[
+			`On this project, I was the developer and UI/UX designer and client too.`,
+			`I went for an intuitive, simple and smooth experience goal for my website viewers.`,
+			`I also added some personality to the design in form of dark mode almost everywhere and a few 
+			transition animations as the user interacts with the website.`,
+		],
+		techUsed: [
+			'CSS - scripted with SASS',
+			'React js - framed with Next js framework',
+			'Framer motion',
+		],
+		tags: [
+			'javascript',
+			'react',
 		],
 	}),
 }

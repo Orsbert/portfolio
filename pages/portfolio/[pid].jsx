@@ -112,21 +112,19 @@ export const ProjectContent = ({data}) => {
 				<br/>
 				<a
 					href={data.link}
-					title={`open ${data.title}`}
-				>
-					<span>visit the website </span>
-				</a>
-				<a
-					href={data.link}
 					target='_blank'
 					rel="noreferrer"
 					title={`open ${data.title} in new tab`}
 				>
+					<span>visit the website </span>
 					<InlineIcon icon={newTab} width="24" />
 				</a>
 			</span>
 			<br />
-			<div className="image-wrapper">
+			<div
+				className="image-wrapper"
+				onDoubleClick={() => { window.location.href = data.link }}
+			>
 				<Image
 					src={data.thumbnail}
 					layout='responsive'

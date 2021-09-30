@@ -4,6 +4,8 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import * as gtag from '../scripts/gtag'
 import Script from 'next/script'
+import SEO from '../next-seo.config'
+import { DefaultSeo } from 'next-seo'
 
 function MyApp({ Component, pageProps }) {
 
@@ -39,7 +41,8 @@ function MyApp({ Component, pageProps }) {
             });
           `,
         }}
-      />
+			/>
+			<DefaultSeo {...SEO} />
 			<Component {...pageProps} />
 			<MailButton/>
 		</>
