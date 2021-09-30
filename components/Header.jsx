@@ -16,8 +16,8 @@ export const Header = () => {
 					<Image
 						src='/dp.png'
 						layout='responsive'
-						height={70}
-						width={70}
+						height={200}
+						width={200}
 					/>
 				</div>
 				<div>

@@ -11,7 +11,7 @@ export default function Home() {
 			<Head>
 				<title>Orsbert Ayesigye - Designs, develops, tests, deploys and monitors web-based applications.</title>
 				<meta name="description" content="Portfolio for Orsbert Ayesigye" />
-				<link rel="icon" href="/dp.png" />
+				<link rel="icon" href="/dp_tiny.png" />
 				<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'></link>
 			</Head>
 			<Nav/>

@@ -52,18 +52,15 @@ export const ProjectHeader = observer(({ title }) => {
 	const headerTitleVariants = {
 		top: {
 			paddingTop: '60px',
-			// width: `calc(${title.length}ch + 50px)`,
 		},
 		up: {
 			paddingTop: '0px',
 			marginLeft: '5px',
-			// width: `calc(${title.length}ch + 50px)`,
 		},
 		down: {
 			paddingTop: '0px',
 			marginLeft: '5px',
 			fontSize: '32px',
-			// width: `calc(${title.length}ch + 50px)`,
 		},
 	}
 

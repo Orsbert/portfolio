@@ -16,9 +16,12 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding-bottom: 6px;
 		.avator{
-			height: calc(10px + 3.5vw);
-			width: calc(10px + 3.5vw);
+			height: calc(50px + 3.5vw);
+			width: calc(50px + 3.5vw);
+			border-radius: 50% 50% 10px;
+			overflow: hidden;	
 		}
 		.name{
 			font-size: calc(15px + 0.3vw);
