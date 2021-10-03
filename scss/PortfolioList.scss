@@ -59,15 +59,20 @@
 		margin: calc(10px + 1vh) calc(10px + 0.5vw);
 		border: 1px solid $secondary-color;
 		transition: all 0.2s;
+		width: 310px;
+		background-color: $secondary-color;
 		&:hover{
 			border-color: white;
+			background-color: white;
 			.title{
-				background-color: white;
-				color: $primary-color;
+				color: $secondary-color;
+				.target{
+					font-weight: bolder;
+					color: $primary-color;
+				}
 			}
 		}
 		.title{
-			background-color: $secondary-color;
 			padding: 2px 5px;
 			color: white;
 			overflow: hidden;

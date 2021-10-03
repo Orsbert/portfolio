@@ -52,7 +52,7 @@ export const Tags = () => {
 }
 
 // @ts-ignore
-export const PortfolioThumbnail = ({ slug, title, thumbnail, tags }) => {
+export const PortfolioThumbnail = ({ slug, title, description, thumbnail, tags }) => {
 	const context = useContext(UserContext)
 	
 	const handleMouseEnter = () => {
@@ -73,14 +73,21 @@ export const PortfolioThumbnail = ({ slug, title, thumbnail, tags }) => {
 		>
 			<Link href={`/portfolio/${slug}`}>
 				<a>
-					<Image
-						src={thumbnail}
-						height={150}
-						width={309.4}
-						alt={slug}
-					/>
+					<div className='thumbnail'>
+						<Image
+							src={thumbnail}
+							height={150}
+							width={309.4}
+							alt={slug}
+						/>
+					</div>
 					<div className='title'>
-						{title}
+						<strong>{title}</strong>
+						<br />
+						<div className="sub-title">
+							{description.substring(0, 60)}...
+							<span className='target'> Read more</span>
+						</div>
 					</div>
 				</a>
 			</Link>
@@ -99,8 +106,8 @@ export const PortfolioThumbnails = observer(() => {
 
 	return (
 		<motion.ul className='portfolio-thumbnails-wrapper' layout>
-			{filtered.map(({slug, title, thumbnail, tags}) => (
-				<PortfolioThumbnail slug={slug} title={title} thumbnail={thumbnail} tags={tags} key={slug}/>
+			{filtered.map(({slug, title, description, thumbnail, tags}) => (
+				<PortfolioThumbnail slug={slug} title={title} description={description} thumbnail={thumbnail} tags={tags} key={slug}/>
 			))}
 		</motion.ul>
 	)
