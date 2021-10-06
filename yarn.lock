@@ -125,10 +125,10 @@
   resolved "https://registry.yarnpkg.com/@iconify/icons-ant-design/-/icons-ant-design-1.1.0.tgz#013574b09d8dd167490e6fd6dd0b2805d7170854"
   integrity sha512-sE4NKXMfN9arTFmfvt4zARoS+hjhd8P0z5osjWYxVkQPCri1RYpF+NRa9MsDh3ScqAcSU9wfUeQ3X4Gf8GrcNQ==
 
-"@iconify/icons-bi@^1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@iconify/icons-bi/-/icons-bi-1.1.5.tgz#a0222facbbcb22489c6faf7648e3662b732605d1"
-  integrity sha512-aDxe8WGt9KovnzzBSi5m4WR/OQ6bjx3x85jxhiCM/ylTZtPwMGUZyuNY7hU7ECV8QFci/IMUNHRmz3epm88/+w==
+"@iconify/icons-bi@^1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-bi/-/icons-bi-1.1.6.tgz#90a636476235a61dc44b5f754e0242c50dc946a7"
+  integrity sha512-CWk+Ar7Ake7ygEHcTa+Tc+WVFYhLoZJWcfXDddIG8B3bhXidi7XMVNhlak6X3ZynQS2jknLyCLx4fJlfboKAIQ==
 
 "@iconify/icons-bx@^1.1.2":
   version "1.1.2"

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { MailButtonPlaceholder } from './MailButton'
-import { GithubLink, TwitterLink } from './Nav'
+import { GithubLink, LinkedinLink, TwitterLink } from './Nav'
 
 export const Footer = () => {
 
@@ -15,6 +15,7 @@ export const Footer = () => {
 			<MailButtonPlaceholder tag={'footer'} />
 			<div className="connect-icons center">
 				<TwitterLink/>
+				<LinkedinLink/>
 				<GithubLink/>
 			</div>
 		</footer>
