@@ -6,6 +6,7 @@
   font-family: 'Montserrat', sans-serif;
 	transition: color 0.12s, background-color 0.3s;
 	transition: opacity 0.12s;
+	scroll-behavior: smooth !important;
 }
 body{
 	color: $primary-color;
@@ -25,7 +26,7 @@ body{
 	}
 	&:hover{
 		cursor: pointer;
-		background-color: rgba(128, 128, 128, 0.521);
+		background-color: rgba(87, 128, 125, 0.3);
 	}
 }
 

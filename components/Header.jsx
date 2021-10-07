@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Icon } from '@iconify/react'
 import caretDownSquareFill from '@iconify/icons-bi/caret-down-square-fill'
 import { MailButtonPlaceholder } from './MailButton'
@@ -39,7 +40,9 @@ export const Header = () => {
 						className='down-arrow'
 					/>
 					&nbsp;&nbsp;
-					<div className='see-my-work'>see my work</div>
+					<Link href='#portfolio-list-heading'>
+						<div className='see-my-work'>see my work</div>
+					</Link>
 				</div>
 			</div>
 		</motion.div>
