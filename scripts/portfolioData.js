@@ -42,7 +42,7 @@ const portfolioData = {
       "GLSL",
       "tailwind css",
     ],
-    tags: ["React Three Fiber", "React"],
+    tags: ["React Three Fiber", "Three js", "React", "raycasting"],
   }),
   facade: Portfolio({
     slug: "facade",
@@ -66,7 +66,7 @@ const portfolioData = {
       `Developed a framework for managing state, raycasting and more, improving development efficiency by 30%.`,
     ],
     techUsed: ["Three js", "Vue js", "Javascript", "Git"],
-    tags: ["three", "CAD", "raycasting"],
+    tags: ["Three js", "CAD", "raycasting", "Blender"],
   }),
   molyslip: Portfolio({
     slug: "molyslip",
@@ -93,7 +93,7 @@ const portfolioData = {
       "GLSL",
       "Blender",
     ],
-    tags: ["React Three Fiber", "React", "Blender"],
+    tags: ["React Three Fiber", "Three js", "React", "Blender", "raycasting"],
   }),
   o7ean2d: Portfolio({
     slug: "o7ean2d",
@@ -115,7 +115,7 @@ const portfolioData = {
       "Blender",
       "CSS - scripted with SASS",
     ],
-    tags: ["React Three Fiber", "React", "Blender"],
+    tags: ["React Three Fiber", "Three js", "React", "Blender"],
   }),
   toptear: Portfolio({
     slug: "toptear",
@@ -137,7 +137,7 @@ const portfolioData = {
       "Blender",
       "CSS - scripted with SASS",
     ],
-    tags: ["React Three Fiber", "React", "Blender"],
+    tags: ["React Three Fiber", "Three js", "React", "Blender"],
   }),
   portfolio: Portfolio({
     slug: "portfolio",
@@ -155,7 +155,7 @@ const portfolioData = {
       "React js - framed with Next js framework",
       "Framer motion",
     ],
-    tags: ["javascript", "react"],
+    tags: ["React"],
   }),
 };
 
