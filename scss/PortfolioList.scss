@@ -1,83 +1,83 @@
-@import 'variables';
+@import "variables";
 
-.portfolio-list{
-	background: url(/images/buttons-panel.png);
-	background-color: $primary-color;
-	min-height: 100vh;
-	color: white;
+.portfolio-list {
+  background: url(/images/buttons-panel.png);
+  background-color: $primary-color;
+  min-height: 100vh;
+  color: white;
 }
 
-.tags-wrapper{
-	display: flex;
-	flex-wrap: wrap;
-	position: sticky;
-	top: 0;
-	z-index: 1;
-	background-color: rgba(0, 0, 0, 0.61);
-	background-blend-mode: hard-light;
-	.tag{
-		border: calc(1px + 0.1vw) solid $secondary-color;
-		border-radius: calc(3px + 0.1vw);
-		text-transform: uppercase;
-		font-style: normal;
-		font-weight: bold;
-		font-size: calc(15px + 0.01vw);
-		color: $secondary-color;
-		padding: calc(3px + 0.01vw) calc(4px + 0.03vw);
-		margin-right: calc(6px + 0.35vw);
-		margin-bottom: calc(8px + 0.35vw);
-		white-space: nowrap;
-		transition: 0.3s background-color, 0.3s border;
-		cursor: default;
-		&:hover{
-			border-color: white;
-			background-color: white;
-			color: transparent !important;
-			box-shadow: 0px 0px calc(1px + 0.03vw) white;
-		}
-		&.tagged{
-			border-color: white;
-			color: white;
-			box-shadow: 0px 0px calc(1px + 0.02vw) white;
-		}
-		&.selected{
-			border-color: white;
-			background-color: white;
-			color: transparent;
-			box-shadow: 0px 0px calc(1px + 0.01vw) white;
-		}
-	}
+.tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.61);
+  background-blend-mode: hard-light;
+  .tag {
+    border: calc(1px + 0.1vw) solid $secondary-color;
+    border-radius: calc(3px + 0.1vw);
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bold;
+    font-size: calc(15px + 0.01vw);
+    color: $secondary-color;
+    padding: calc(3px + 0.01vw) calc(4px + 0.03vw);
+    margin-right: calc(6px + 0.35vw);
+    margin-bottom: calc(8px + 0.35vw);
+    white-space: nowrap;
+    transition: 0.3s background-color, 0.3s border;
+    cursor: default;
+    &:hover {
+      border-color: white;
+      background-color: white;
+      color: transparent !important;
+      box-shadow: 0px 0px calc(1px + 0.03vw) white;
+    }
+    &.tagged {
+      border-color: white;
+      color: white;
+      box-shadow: 0px 0px calc(1px + 0.02vw) white;
+    }
+    &.selected {
+      border-color: white;
+      background-color: white;
+      color: transparent;
+      box-shadow: 0px 0px calc(1px + 0.01vw) white;
+    }
+  }
 }
 
-.portfolio-thumbnails-wrapper{
-	display: flex;
-	padding: calc(15px + 0.5vw) 0px;
-	flex-wrap: wrap;
-	justify-content: center;
-	.portfolio-thumbnail{
-		display: block;
-		margin: calc(10px + 1vh) calc(10px + 0.5vw);
-		border: 1px solid $secondary-color;
-		transition: all 0.2s;
-		width: 310px;
-		background-color: $secondary-color;
-		&:hover{
-			border-color: white;
-			background-color: white;
-			.title{
-				color: $secondary-color;
-				.target{
-					font-weight: bolder;
-					color: $primary-color;
-				}
-			}
-		}
-		.title{
-			padding: 2px 5px;
-			color: white;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			width: 100%;
-		}
-	}
+.portfolio-thumbnails-wrapper {
+  display: flex;
+  padding: calc(15px + 0.5vw) 0px;
+  flex-wrap: wrap;
+  justify-content: center;
+  .portfolio-thumbnail {
+    display: block;
+    margin: calc(10px + 1vh) calc(10px + 0.5vw);
+    border: 1px solid $secondary-color;
+    transition: all 0.2s;
+    width: 310px;
+    background-color: $secondary-color;
+    &:hover {
+      border-color: white;
+      background-color: white;
+      .title {
+        color: $secondary-color;
+        .target {
+          font-weight: bolder;
+          color: $primary-color;
+        }
+      }
+    }
+    .title {
+      padding: 2px 5px;
+      color: white;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+  }
 }

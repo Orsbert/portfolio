@@ -1,186 +1,168 @@
-import React, { useContext, useEffect } from 'react'
-import { useRouter } from 'next/router'
-import Image from 'next/image'
-import Link from 'next/link'
-import ErrorPage from 'next/error'
-import { getPortfolio } from '../../scripts/portfolioData'
-import { InlineIcon } from '@iconify/react'
-import newTab from '@iconify/icons-icomoon-free/new-tab'
-import { motion, useViewportScroll } from 'framer-motion'
-import { observer } from 'mobx-react-lite'
-import UserContext from '../../scripts/Store'
-import { Icon } from '@iconify/react'
-import bxArrowBack from '@iconify/icons-bx/bx-arrow-back'
-import { NextSeo } from 'next-seo'
+import React, { useContext, useEffect } from "react";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import Link from "next/link";
+import ErrorPage from "next/error";
+import { getPortfolio } from "../../scripts/portfolioData";
+import { InlineIcon } from "@iconify/react";
+import newTab from "@iconify/icons-icomoon-free/new-tab";
+import { motion, useViewportScroll } from "framer-motion";
+import { observer } from "mobx-react-lite";
+import UserContext from "../../scripts/Store";
+import { Icon } from "@iconify/react";
+import bxArrowBack from "@iconify/icons-bx/bx-arrow-back";
+import { NextSeo } from "next-seo";
 
-let scrollDirection = 'down' // 'down' || 'up'
-let scrollYProgressValue = 0
+let scrollDirection = "down"; // 'down' || 'up'
+let scrollYProgressValue = 0;
 
 // @ts-ignore
 export const ProjectHeader = observer(({ title }) => {
+  const context = useContext(UserContext);
+  const { stateScrollDirection } = context.user;
 
-	const context = useContext(UserContext)
-	const { stateScrollDirection } = context.user
-	
-	// listen for changes in y postion change
-	const { scrollYProgress } = useViewportScroll()
+  // listen for changes in y postion change
+  const { scrollYProgress } = useViewportScroll();
 
-	useEffect(() => (
-		scrollYProgress.onChange((latest) => {
-			const { stateScrollDirection } = context.user
-			
-			const diff = Math.abs(latest - scrollYProgressValue)
+  useEffect(
+    () =>
+      scrollYProgress.onChange((latest) => {
+        const { stateScrollDirection } = context.user;
 
-			const scrollDiffThreshold = 0.02 // calibrating
+        const diff = Math.abs(latest - scrollYProgressValue);
 
-			// compare with prev value && determine direction
-			// if (diff > scrollDiffThreshold || stateScrollDirection === 'top') {
-			// 	scrollDirection = (latest > scrollYProgressValue)? 'down': 'up'
-			// }
+        const scrollDiffThreshold = 0.02; // calibrating
 
-			scrollDirection = (latest === 0) ? 'top' : (latest < 0.4) ? 'up' : 'down'
-			
-			// update state if neccessary
-			if (scrollDirection !== stateScrollDirection) { // only new
-				context.setUser({ stateScrollDirection: scrollDirection })
-			}
+        // compare with prev value && determine direction
+        // if (diff > scrollDiffThreshold || stateScrollDirection === 'top') {
+        // 	scrollDirection = (latest > scrollYProgressValue)? 'down': 'up'
+        // }
 
-			// store value
-			scrollYProgressValue = latest
-		})
-	),[scrollDirection])
+        scrollDirection = latest === 0 ? "top" : latest < 0.4 ? "up" : "down";
 
-	const headerTitleVariants = {
-		top: {
-			paddingTop: '60px',
-		},
-		up: {
-			paddingTop: '0px',
-			marginLeft: '5px',
-		},
-		down: {
-			paddingTop: '0px',
-			marginLeft: '5px',
-			fontSize: '32px',
-		},
-	}
+        // update state if neccessary
+        if (scrollDirection !== stateScrollDirection) {
+          // only new
+          context.setUser({ stateScrollDirection: scrollDirection });
+        }
 
-	const headerVariants = {
-		top: {
-			borderBottomWidth: '0px',
-		},
-	}
+        // store value
+        scrollYProgressValue = latest;
+      }),
+    [scrollDirection]
+  );
 
-	return (
-		<motion.div
-			id='project-header'
-			className="project-header"
-			initial={'top'}
-			animate={stateScrollDirection}
-			variants={headerVariants}
-			transition={{type: 'tween', ease: 'linear'}}
-		>
-			<Link href='/#portfolio-list-heading'>
-				<div
-					className="button back-button"
-					role='button'
-					title={`close`}
-				>
-					<Icon
-						icon={bxArrowBack}
-						fontSize={36}
-					/>
-				</div>
-			</Link>
-			<div className="title-wrapper">
-				<motion.div
-					className="title"
-					variants={headerTitleVariants}
-				>
-					{title}
-				</motion.div>
-			</div>
-		</motion.div>
-	)
-})
+  const headerTitleVariants = {
+    top: {
+      paddingTop: "60px",
+    },
+    up: {
+      paddingTop: "0px",
+      marginLeft: "5px",
+    },
+    down: {
+      paddingTop: "0px",
+      marginLeft: "5px",
+      fontSize: "32px",
+    },
+  };
 
-export const ProjectContent = ({data}) => {
-	return (
-		<div className='project-content container'>
-			<span className="normal">
-				{data.description}
-				<br/>
-				<a
-					href={data.link}
-					target='_blank'
-					rel="noreferrer"
-					title={`open ${data.title} in new tab`}
-				>
-					<span>visit the website </span>
-					<InlineIcon icon={newTab} width="24" />
-				</a>
-			</span>
-			<br />
-			<div
-				className="image-wrapper"
-				onDoubleClick={() => { window.location.href = data.link }}
-			>
-				<Image
-					src={data.thumbnail}
-					layout='responsive'
-					height={654}
-					width={1349}
-					alt={data.title}
-				/>
-			</div>
-			<span className="sub-heading">About this Project</span>
-			{
-				data.informationList.map((text, i) => (
-					<span className="normal" key={i}>{text} <br /></span>
-				))
-			}
-			<br />
-			<span className="sub-heading">Technical Sheet</span>
-			<span className="normal">Code technologies used in this project.</span>
-			<br />
-			<ul className='normal container'>
-			{
-				data.techUsed.map((text, i) => (
-					<li key={i}>{text}</li>
-				))
-			}
-			</ul>
-		</div>
-	)
-}
+  const headerVariants = {
+    top: {
+      borderBottomWidth: "0px",
+    },
+  };
 
+  return (
+    <motion.div
+      id='project-header'
+      className='project-header'
+      initial={"top"}
+      animate={stateScrollDirection}
+      variants={headerVariants}
+      transition={{ type: "tween", ease: "linear" }}
+    >
+      <Link href='/#portfolio-list-heading'>
+        <div className='button back-button' role='button' title={`close`}>
+          <Icon icon={bxArrowBack} fontSize={36} />
+        </div>
+      </Link>
+      <div className='title-wrapper'>
+        <motion.div className='title' variants={headerTitleVariants}>
+          {title}
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+});
+
+export const ProjectContent = ({ data }) => {
+  return (
+    <div className='project-content container'>
+      <span className='normal'>
+        {data.description}
+        <br />
+      </span>
+      <br />
+      <div
+        className='image-wrapper'
+        onDoubleClick={() => {
+          window.location.href = data.link;
+        }}
+      >
+        <Image
+          src={data.thumbnail}
+          layout='responsive'
+          height={654}
+          width={1920 * (654 / 1080)}
+          alt={data.title}
+        />
+      </div>
+      <span className='sub-heading'>On this Project</span>
+      {data.informationList.map((text, i) => (
+        <span className='normal' key={i}>
+          {text} <br />
+        </span>
+      ))}
+      <br />
+      <span className='sub-heading'>Technical Sheet</span>
+      <span className='normal'>Code technologies used in this project.</span>
+      <br />
+      <ul className='normal container'>
+        {data.techUsed.map((text, i) => (
+          <li key={i}>{text}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 const PortfolioProject = () => {
-	const router = useRouter()
-	const { pid } = router.query
+  const router = useRouter();
+  const { pid } = router.query;
 
-	const data = getPortfolio(pid)
+  const data = getPortfolio(pid);
 
-	// incase of an invalid $pid
-	if (data === null) {
-		return <ErrorPage statusCode={404}/>
-	}
+  // incase of an invalid $pid
+  if (data === null) {
+    return <ErrorPage statusCode={404} />;
+  }
 
-	return (
-		<>
-			<NextSeo
-				title={data.title}
-				description={data.description}
-			/>
-			<div className='portfolio-project'>
-				<ProjectHeader 
-					// @ts-ignore
-					title={data.title}
-				/>
-				<ProjectContent data={data}/>
-			</div>
-		</>
-	)
-}
+  return (
+    <>
+      <NextSeo
+        title={data.title + " - Orsbert Ayesigye"}
+        description={data.description}
+      />
+      <div className='portfolio-project'>
+        <ProjectHeader
+          // @ts-ignore
+          title={data.title}
+        />
+        <ProjectContent data={data} />
+      </div>
+    </>
+  );
+};
 
-export default PortfolioProject
+export default PortfolioProject;

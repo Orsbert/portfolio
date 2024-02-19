@@ -1,71 +1,70 @@
-@import 'variables';
-*{
+@import "variables";
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-	transition: color 0.12s, background-color 0.3s;
-	transition: opacity 0.12s;
-	scroll-behavior: smooth !important;
+  font-family: "Montserrat", sans-serif;
+  transition: color 0.12s, background-color 0.3s;
+  transition: opacity 0.12s;
+  scroll-behavior: smooth !important;
 }
-body{
-	color: $primary-color;
-	text-shadow: 0px 0px 0px black;
-}
-
-.button{
-	border-radius: calc(1px + 0.7vw);
-	padding: 12px;
-	align-items: center;
-	transition: background-color 0.3s;
-	&.primary{
-		background-color: $secondary-color;
-		color: white;
-		font-style: normal;
-		font-weight: 600;
-	}
-	&:hover{
-		cursor: pointer;
-		background-color: rgba(87, 128, 125, 0.3);
-	}
+body {
+  color: $primary-color;
+  text-shadow: 0px 0px 0px black;
 }
 
-.heading{
-	display: block;
-	font-weight: bold;
-	font-size: calc(28px + 2.3vw);
-	padding: calc(8px + 0.01vw) 0px;
-	opacity: 0.9;
-}
-.sub-heading{
-	display: block;
-	font-style: normal;
-	font-weight: bold;
-	font-size: calc(20px + 3vw);
-	line-height: calc(20px + 2.9vw);
-	padding: calc(20px + 0.05vw) 0px;
-	opacity: 0.9;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
+.button {
+  border-radius: calc(1px + 0.7vw);
+  padding: 12px;
+  align-items: center;
+  transition: background-color 0.3s;
+  &.primary {
+    background-color: $secondary-color;
+    color: white;
+    font-style: normal;
+    font-weight: 600;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(87, 128, 125, 0.3);
+  }
 }
 
-.normal{
-	font-weight: normal;
-	font-size: calc(16px + 0.8vw);
-	line-height: calc(15px + 1.8vw);
+.heading {
+  display: block;
+  font-weight: bold;
+  font-size: calc(28px + 2.3vw);
+  padding: calc(8px + 0.01vw) 0px;
+  opacity: 0.9;
+}
+.sub-heading {
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  font-size: calc(20px + 3vw);
+  line-height: calc(20px + 2.9vw);
+  padding: calc(20px + 0.05vw) 0px;
+  opacity: 0.9;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-.image-wrapper{
-	display: block;
-	padding: 30px 0px;
+.normal {
+  font-weight: normal;
+  font-size: calc(16px + 0.8vw);
+  line-height: calc(15px + 1.8vw);
 }
 
+.image-wrapper {
+  display: block;
+  padding: 30px 0px;
+}
 
 // container from bootstrap
 .container {
-	padding-top: calc(1px + 1.6vw);
-	padding-bottom: calc(1px + 1.6vw);
+  padding-top: calc(1px + 1.6vw);
+  padding-bottom: calc(1px + 1.6vw);
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -87,36 +86,40 @@ body{
   }
 }
 
-.center{
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-a{
-	text-decoration: none;
-	color: $secondary-color;
-	&:hover{
-		opacity: 0.6;
-	}
+a {
+  text-decoration: none;
+  color: $secondary-color;
+  &:hover {
+    opacity: 0.9;
+  }
 }
 
-.mail-button{
-	position: fixed;
-	z-index: 3;
-	left: 100vw;
-	top: 100vh;
-	a{
-		color: white;
-	}
+.mail-button {
+  position: fixed;
+  z-index: 3;
+  left: 100vw;
+  top: 100vh;
+  a {
+    color: white;
+  }
 }
 
-footer{
-	background-color: #111010;
+.green {
+  color: $secondary-color;
 }
 
-@import 'Nav.scss';
-@import 'Header.scss';
-@import 'PortfolioList.scss';
-@import 'PortfolioProject.scss';
-@import 'Footer.scss';
+footer {
+  background-color: #111010;
+}
+
+@import "Nav.scss";
+@import "Header.scss";
+@import "PortfolioList.scss";
+@import "PortfolioProject.scss";
+@import "Footer.scss";
