@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getTagsList, portfolioDataList } from "../scripts/portfolioData";
@@ -55,16 +55,42 @@ export const PortfolioThumbnail = ({
   title,
   description,
   thumbnail,
+  hoverVideo,
   tags,
 }) => {
+  const videoRef = useRef(null);
+  const thumbnailImageRef = useRef(null);
   const context = useContext(UserContext);
+  const { current: playHoverVideoTimeout } = useRef(null);
+
+  const hasHoverVideo = hoverVideo !== "";
 
   const handleMouseEnter = () => {
     context.setUser({ tagsTagged: tags });
+
+    if (playHoverVideoTimeout) clearTimeout(playHoverVideoTimeout);
+
+    playHoverVideoTimeout = setTimeout(() => {
+      if (hasHoverVideo && videoRef.current) {
+        // hide imagea
+        thumbnailImageRef.current.style.display = "none";
+        videoRef.current.play();
+      }
+    }, 200);
   };
 
   const handleMouseLeave = () => {
     context.setUser({ tagsTagged: [] });
+
+    if (playHoverVideoTimeout) clearTimeout(playHoverVideoTimeout);
+
+    if (hasHoverVideo && videoRef.current) {
+      // show image
+      thumbnailImageRef.current.style.display = "block";
+      // move to start
+      videoRef.current.currentTime = 0;
+      videoRef.current.pause();
+    }
   };
 
   return (
@@ -86,7 +112,31 @@ export const PortfolioThumbnail = ({
               overflow: "hidden",
             }}
           >
-            <Image src={thumbnail} layout={"fill"} alt={slug} />
+            {hasHoverVideo && (
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <video
+                  ref={videoRef}
+                  src={hoverVideo}
+                  style={{
+                    width: "100%",
+                    // height: "100%",
+                  }}
+                  loop
+                  muted
+                ></video>
+              </div>
+            )}
+            <div ref={thumbnailImageRef}>
+              <Image src={thumbnail} layout={"fill"} alt={slug} />
+            </div>
           </div>
           <div className='title'>
             <strong>{title}</strong>
@@ -115,16 +165,19 @@ export const PortfolioThumbnails = observer(() => {
 
   return (
     <motion.ul className='portfolio-thumbnails-wrapper' layout>
-      {filtered.map(({ slug, title, description, thumbnail, tags }) => (
-        <PortfolioThumbnail
-          slug={slug}
-          title={title}
-          description={description}
-          thumbnail={thumbnail}
-          tags={tags}
-          key={slug}
-        />
-      ))}
+      {filtered.map(
+        ({ slug, title, description, thumbnail, hoverVideo, tags }) => (
+          <PortfolioThumbnail
+            slug={slug}
+            title={title}
+            description={description}
+            thumbnail={thumbnail}
+            hoverVideo={hoverVideo}
+            tags={tags}
+            key={slug}
+          />
+        )
+      )}
     </motion.ul>
   );
 });
