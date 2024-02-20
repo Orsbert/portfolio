@@ -97,6 +97,8 @@ export const ProjectHeader = observer(({ title }) => {
 });
 
 export const ProjectContent = ({ data }) => {
+  const hasVideo = data.videoId !== "";
+
   return (
     <div className='project-content container'>
       <span className='normal'>
@@ -104,20 +106,28 @@ export const ProjectContent = ({ data }) => {
         <br />
       </span>
       <br />
-      <div
-        className='image-wrapper'
-        onDoubleClick={() => {
-          window.location.href = data.link;
-        }}
-      >
-        <Image
-          src={data.thumbnail}
-          layout='responsive'
-          height={654}
-          width={1920 * (654 / 1080)}
-          alt={data.title}
-        />
-      </div>
+      {hasVideo && (
+        <iframe
+          width='100%'
+          height='654'
+          src={`https://www.youtube.com/embed/${data.videoId}`}
+          title='YouTube video player'
+          frameBorder='0'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+          allowFullScreen
+        ></iframe>
+      )}
+      {!hasVideo && (
+        <div className='image-wrapper'>
+          <Image
+            src={data.thumbnail}
+            layout='responsive'
+            height={654}
+            width={1920 * (654 / 1080)}
+            alt={data.title}
+          />
+        </div>
+      )}
       <span className='sub-heading'>On this Project</span>
       {data.informationList.map((text, i) => (
         <span className='normal' key={i}>

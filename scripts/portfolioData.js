@@ -1,24 +1,4 @@
-const Portfolio = ({
-  slug = "",
-  title = "",
-  thumbnail = "",
-  logo = "",
-  description = "",
-  informationList = [],
-  techUsed = [],
-  tags = [],
-}) => {
-  return {
-    slug,
-    title,
-    thumbnail,
-    logo,
-    description,
-    informationList,
-    techUsed,
-    tags,
-  };
-};
+import { Portfolio } from "./Portfolio";
 
 const portfolioData = {
   o7ean3d: Portfolio({
@@ -43,6 +23,7 @@ const portfolioData = {
       "tailwind css",
     ],
     tags: ["React Three Fiber", "Three js", "React", "raycasting"],
+    videoId: "fLSJpkcPjIw",
   }),
   facade: Portfolio({
     slug: "facade",
@@ -70,6 +51,7 @@ const portfolioData = {
     ],
     techUsed: ["Three js", "Vue js", "Javascript", "Git"],
     tags: ["Three js", "CAD", "raycasting", "Blender"],
+    videoId: "xVzkwRsS728",
   }),
   molyslip: Portfolio({
     slug: "molyslip",
@@ -97,6 +79,7 @@ const portfolioData = {
       "Blender",
     ],
     tags: ["React Three Fiber", "Three js", "React", "Blender", "raycasting"],
+    videoId: "r5Wg3FmycCM",
   }),
   o7ean2d: Portfolio({
     slug: "o7ean2d",
@@ -119,6 +102,7 @@ const portfolioData = {
       "CSS - scripted with SASS",
     ],
     tags: ["React Three Fiber", "Three js", "React", "Blender"],
+    videoId: "Bnt1Si5mPaw",
   }),
   toptear: Portfolio({
     slug: "toptear",
@@ -141,6 +125,7 @@ const portfolioData = {
       "CSS - scripted with SASS",
     ],
     tags: ["React Three Fiber", "Three js", "React", "Blender"],
+    videoId: "FJ4UIuB4O1k",
   }),
   portfolio: Portfolio({
     slug: "portfolio",
