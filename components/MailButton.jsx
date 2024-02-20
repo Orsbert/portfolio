@@ -232,7 +232,7 @@ const MailButtonContactForm = ({ modalInView }) => {
 const Modal = ({ children, inView }) => {
   const [isClient, setIsClient] = useState(false);
   // @ts-ignore
-  const left = useMotionValue("100vw");
+  const left = useMotionValue("150vw");
 
   useEffect(() => {
     setIsClient(true);
@@ -241,7 +241,7 @@ const Modal = ({ children, inView }) => {
   // inView change
   useEffect(() => {
     return inView.onChange((latest) => {
-      left.set(latest ? "0vw" : "100vw");
+      left.set(latest ? "0vw" : "150vw");
     });
   }, [inView, left]);
 

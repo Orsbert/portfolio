@@ -88,10 +88,8 @@ export const ProjectHeader = observer(({ title }) => {
           <Icon icon={bxArrowBack} fontSize={36} />
         </div>
       </Link>
-      <div className='title-wrapper'>
-        <motion.div className='title' variants={headerTitleVariants}>
-          {title}
-        </motion.div>
+      <div className='title-wrapper sticky top-0'>
+        <motion.div className='title'>{title}</motion.div>
       </div>
     </motion.div>
   );
