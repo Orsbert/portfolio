@@ -128,7 +128,7 @@ const portfolioData = {
       "Blender",
       "CSS - scripted with SASS",
     ],
-    tags: ["React Three Fiber", "Three js", "React", "Blender"],
+    tags: ["React Three Fiber", "Three js", "React", "Blender", "raycasting"],
     videoId: "FJ4UIuB4O1k",
     hoverVideo: "/videos/toptear.mp4",
   }),
