@@ -48,7 +48,10 @@ const portfolioData = {
     slug: "facade",
     title: "Facade Configurator",
     thumbnail: "/images/facade.png",
-    description: `CAD web application that lets you design and configure your own facade.`,
+    description: `CAD web application that lets you design and configure your own facade.
+		It provides a 3D editor that you can use to build a house from scratch or modify an existing one.
+		You can add windows, doors, and other elements to the facade, and change the materials and colors of the walls.
+		`,
     informationList: [
       `Led the technical development of the 3d portion of the configurator.`,
       `Implemented CAD features, leading to a 40% increase in user productivity.`,
