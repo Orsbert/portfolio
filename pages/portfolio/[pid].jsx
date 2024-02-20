@@ -12,6 +12,7 @@ import UserContext from "../../scripts/Store";
 import { Icon } from "@iconify/react";
 import bxArrowBack from "@iconify/icons-bx/bx-arrow-back";
 import { NextSeo } from "next-seo";
+import { Footer } from "../../components/Footer";
 
 let scrollDirection = "down"; // 'down' || 'up'
 let scrollYProgressValue = 0;
@@ -173,6 +174,7 @@ const PortfolioProject = () => {
         />
         <ProjectContent data={data} />
       </div>
+      <Footer />
     </>
   );
 };

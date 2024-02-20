@@ -1,13 +1,14 @@
-nav{
-	height: calc(20px + 2vw);
-	border-bottom: 1px solid #e3d2d2b9;
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: right;
-	align-items: center;
-	padding: 0px calc(10px + 1.05vw);
+nav {
+  height: calc(20px + 2vw);
+  border-bottom: 1px solid #e3d2d2b9;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: right;
+  align-items: center;
+  padding: 0px calc(10px + 1.05vw);
+  background-color: white;
 }
-.nav-icon{
-	font-size: calc(10px + 1vw);
-	margin-left: calc(14px + 0.2vw);
+.nav-icon {
+  font-size: calc(10px + 1vw);
+  margin-left: calc(14px + 0.2vw);
 }

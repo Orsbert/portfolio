@@ -5,27 +5,30 @@
   background-color: $primary-color;
   min-height: 100vh;
   color: white;
+  padding-top: calc(100px + 1.5vw);
+  padding-bottom: calc(130px + 1.5vw);
 }
 
 .tags-wrapper {
   display: flex;
+  gap: calc(6px + 0.35vw);
   flex-wrap: wrap;
   position: sticky;
-  top: 0;
+  border-radius: 10px;
+  top: 10px;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.61);
   background-blend-mode: hard-light;
+  box-shadow: 0px 0px calc(1px + 0.03vw) rgba(0, 0, 0, 0.61);
   .tag {
-    border: calc(1px + 0.1vw) solid $secondary-color;
+    border: calc(1px + 0.05vw) solid $secondary-color;
     border-radius: calc(3px + 0.1vw);
     text-transform: uppercase;
     font-style: normal;
     font-weight: bold;
-    font-size: calc(15px + 0.01vw);
+    font-size: calc(12px + 0.01vw);
     color: $secondary-color;
     padding: calc(3px + 0.01vw) calc(4px + 0.03vw);
-    margin-right: calc(6px + 0.35vw);
-    margin-bottom: calc(8px + 0.35vw);
     white-space: nowrap;
     transition: 0.3s background-color, 0.3s border;
     cursor: default;
