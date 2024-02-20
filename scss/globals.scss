@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import "variables";
 * {
   margin: 0;
@@ -117,6 +120,10 @@ a {
 
 footer {
   background-color: #111010;
+}
+
+.error-text {
+  color: red;
 }
 
 @import "Nav.scss";

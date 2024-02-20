@@ -134,7 +134,10 @@ export const PortfolioThumbnail = ({
                 ></video>
               </div>
             )}
-            <div ref={thumbnailImageRef}>
+            <div
+              ref={thumbnailImageRef}
+              style={{ position: "relative", height: "100%", width: "100%" }}
+            >
               <Image src={thumbnail} layout={"fill"} alt={slug} />
             </div>
           </div>
@@ -142,7 +145,7 @@ export const PortfolioThumbnail = ({
             <strong>{title}</strong>
             <br />
             <div className='sub-title'>
-              {description.substring(0, 60)}...
+              {description.substring(0, 50)}...
               <span className='target'> Read more</span>
             </div>
           </div>

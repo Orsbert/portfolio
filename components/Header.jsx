@@ -27,7 +27,7 @@ export const Header = () => {
       <div className='bottom-buttons-wrapper'>
         <MailButtonPlaceholder tag={"header"} />
         <br />
-        <div className='button down-arrow-wrapper'>
+        <div className='down-arrow-wrapper cursor-pointer hover:opacity-50 p-2 rounded-md'>
           <Icon icon={caretDownSquareFill} className='down-arrow' />
           &nbsp;&nbsp;
           <Link href='#portfolio-list-heading'>
