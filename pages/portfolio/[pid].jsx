@@ -129,11 +129,13 @@ export const ProjectContent = ({ data }) => {
         </div>
       )}
       <span className='sub-heading'>On this Project</span>
-      {data.informationList.map((text, i) => (
-        <span className='normal' key={i}>
-          {text} <br />
-        </span>
-      ))}
+      <ul className='container'>
+        {data.informationList.map((text, i) => (
+          <li className='normal' key={i}>
+            {text} <br />
+          </li>
+        ))}
+      </ul>
       <br />
       <span className='sub-heading'>Technical Sheet</span>
       <span className='normal'>Code technologies used in this project.</span>

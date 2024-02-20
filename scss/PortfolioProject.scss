@@ -1,49 +1,49 @@
-@import 'variables';
+@import "variables";
 
-.portfolio-project{
-	background-color: black;
-	color: white;
-	.project-header{
-		display: flex;
-		align-items: center;
-		position: sticky;
-		top: 0;
-		background-color: black;
-		z-index: 2;
-		border-bottom: 2px solid $primary-color;
-		padding: 15px 5px 5px 10px;
+.portfolio-project {
+  background-color: $primary-color;
+  color: white;
+  .project-header {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: $primary-color;
+    z-index: 2;
+    border-bottom: 2px solid $primary-color;
+    padding: 15px 5px 5px 10px;
     margin-right: auto;
     margin-left: auto;
-		.back-button{
-			background-color: white;
-			color: $secondary-color;
-			// font-size: 18px;
-			white-space: nowrap;
-			padding: 6px 8px;
-			align-self: flex-start;
-			border-radius: 50%;
-			margin-left: calc(5px + 2vw);
-			transition: all 0.15s;
-			&:hover{
-				transform: scale(1.05);
-			}
-		}
-		.title-wrapper{
-			display: flex;
-			width: 100%;
-			justify-content: center;
-			overflow: hidden;
-			.title{
-				font-weight: bold;
-				font-size: calc(28px + 2.3vw);
-				text-overflow: ellipsis;
-				white-space: nowrap;
-				overflow: hidden;
-				opacity: 0.9;
-			}
-		}
-	}
-	.project-content{
-		padding-bottom: 60px;
-	}
+    .back-button {
+      background-color: white;
+      color: $secondary-color;
+      // font-size: 18px;
+      white-space: nowrap;
+      padding: 6px 8px;
+      align-self: flex-start;
+      border-radius: 50%;
+      margin-left: calc(5px + 2vw);
+      transition: all 0.15s;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+    .title-wrapper {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      overflow: hidden;
+      .title {
+        font-weight: bold;
+        font-size: calc(28px + 2.3vw);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        opacity: 0.9;
+      }
+    }
+  }
+  .project-content {
+    padding-bottom: 60px;
+  }
 }
