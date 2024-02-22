@@ -61,7 +61,7 @@ export const PortfolioThumbnail = ({
   const videoRef = useRef(null);
   const thumbnailImageRef = useRef(null);
   const context = useContext(UserContext);
-  const { current: playHoverVideoTimeout } = useRef(null);
+  let { current: playHoverVideoTimeout } = useRef(null);
 
   const hasHoverVideo = hoverVideo !== "";
 
@@ -95,62 +95,60 @@ export const PortfolioThumbnail = ({
 
   return (
     <Link href={`/portfolio/${slug}`}>
-      <a>
-        <motion.div
-          className='portfolio-thumbnail'
-          role='button'
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          layout
+      <motion.div
+        className='portfolio-thumbnail'
+        role='button'
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        layout
+      >
+        <div
+          className='thumbnail'
+          style={{
+            position: "relative",
+            height: 150,
+            width: "100%",
+            overflow: "hidden",
+          }}
         >
-          <div
-            className='thumbnail'
-            style={{
-              position: "relative",
-              height: 150,
-              width: "100%",
-              overflow: "hidden",
-            }}
-          >
-            {hasHoverVideo && (
-              <div
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                }}
-              >
-                <video
-                  ref={videoRef}
-                  src={hoverVideo}
-                  style={{
-                    width: "100%",
-                    // height: "100%",
-                  }}
-                  loop
-                  muted
-                ></video>
-              </div>
-            )}
+          {hasHoverVideo && (
             <div
-              ref={thumbnailImageRef}
-              style={{ position: "relative", height: "100%", width: "100%" }}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+              }}
             >
-              <Image src={thumbnail} layout={"fill"} alt={slug} />
+              <video
+                ref={videoRef}
+                src={hoverVideo}
+                style={{
+                  width: "100%",
+                  // height: "100%",
+                }}
+                loop
+                muted
+              ></video>
             </div>
+          )}
+          <div
+            ref={thumbnailImageRef}
+            style={{ position: "relative", height: "100%", width: "100%" }}
+          >
+            <Image src={thumbnail} layout={"fill"} alt={slug} />
           </div>
-          <div className='title'>
-            <strong>{title}</strong>
-            <br />
-            <div className='sub-title'>
-              {description.substring(0, 50)}...
-              <span className='target'> Read more</span>
-            </div>
+        </div>
+        <div className='title'>
+          <strong>{title}</strong>
+          <br />
+          <div className='sub-title'>
+            {description.substring(0, 50)}...
+            <span className='target'> Read more</span>
           </div>
-        </motion.div>
-      </a>
+        </div>
+      </motion.div>
     </Link>
   );
 };

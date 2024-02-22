@@ -1,36 +1,35 @@
-import { MailButton } from '../components/MailButton'
-import '../scss/globals.scss'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-import * as gtag from '../scripts/gtag'
-import Script from 'next/script'
-import SEO from '../next-seo.config'
-import { DefaultSeo } from 'next-seo'
+import { MailButton } from "../components/MailButton";
+import "../scss/globals.scss";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import * as gtag from "../scripts/gtag";
+import Script from "next/script";
+import SEO from "../next-seo.config";
+import { DefaultSeo } from "next-seo";
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
 
-	const router = useRouter()
-
-	useEffect(() => {
+  useEffect(() => {
     const handleRouteChange = (url) => {
-      gtag.pageview(url)
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
-
-	return (
-		<>
-			{/* Global Site Tag (gtag.js) - Google Analytics */}
-			<Script
-        strategy="afterInteractive"
+  return (
+    <>
+      {/* Global Site Tag (gtag.js) - Google Analytics */}
+      <Script
+        strategy='afterInteractive'
         src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
       />
       <Script
-        strategy="afterInteractive"
+        id='gtag-init'
+        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -41,12 +40,12 @@ function MyApp({ Component, pageProps }) {
             });
           `,
         }}
-			/>
-			<DefaultSeo {...SEO} />
-			<Component {...pageProps} />
-			<MailButton/>
-		</>
-	)
+      />
+      <DefaultSeo {...SEO} />
+      <Component {...pageProps} />
+      <MailButton />
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
