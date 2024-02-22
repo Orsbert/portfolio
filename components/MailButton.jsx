@@ -96,9 +96,11 @@ export const MailButtonPlaceholder = observer(({ tag }) => {
       scrollYProgress.onChange(() => {
         const { clientHeight, clientWidth } = document.documentElement;
 
+        const padding = clientWidth * 0.01;
+
         const cornerPoint = {
-          placeholderXPos: clientWidth - 65,
-          placeholderYPos: clientHeight - 65,
+          placeholderXPos: clientWidth - 65 - padding,
+          placeholderYPos: clientHeight - 65 - padding,
         };
 
         const { isVisible } = context.user;
