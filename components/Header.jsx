@@ -11,7 +11,13 @@ export const Header = () => {
     <motion.div className='header-wrapper'>
       <div className='name-wrapper'>
         <div className='avator'>
-          <Image src='/dp.png' layout='responsive' height={200} width={200} />
+          <Image
+            src='/dp.png'
+            layout='responsive'
+            height={200}
+            width={200}
+            alt=''
+          />
         </div>
         <div>
           <span className='name'>ORSBERT AYESIGYE</span>
