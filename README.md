@@ -1,12 +1,26 @@
+# Portfolio Website
+
+Welcome to the repository for my portfolio website! This project is built using Next.js, React.js, and Formik. It serves as a showcase of my work, skills, and experience.
+
 [live site here](https://orsbert.vercel.app/)
 
-# Emails
+## Features:
+
+- **Next.js Framework**: Leveraging Next.js for server-side rendering, routing, and other powerful features, ensuring optimal performance and SEO.
+- **React.js**: Utilizing React.js for building interactive and dynamic user interfaces.
+- **Formik**: Integrating Formik for easy form management, validation, and submission.
+- **Responsive Design**: Ensuring the website is responsive and accessible across various devices and screen sizes.
+- **Project Showcase**: Highlighting my projects, skills, and experiences through an intuitive and visually appealing interface.
+- **Framer Motion**: Incorporates Framer Motion for creating smooth animations and transitions, enhancing the user experience.
+
+
+## Emails
 
 Emails are handled by [resend](https://resend.com). Be sure to check out the `.env.example` on the necessary variables.\*\*\*\*
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Development
 
 First, run the development server:
 
