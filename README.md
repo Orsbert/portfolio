@@ -1,6 +1,4 @@
-[live site here](https://orsbert.netlify.app/)
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/13841f6a-791c-45a6-83a5-877855b416b3/deploy-status)](https://app.netlify.com/sites/nervous-agnesi-98a4c5/deploys)
+[live site here](https://orsbert.vercel.app/)
 
 # Emails
 
