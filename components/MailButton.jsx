@@ -14,6 +14,7 @@ import UserContext from "../scripts/Store";
 import mailFilled from "@iconify/icons-ant-design/mail-filled";
 import getClosestPlaceholder from "../scripts/getClosestPlaceholder";
 import ContactForm from "./ContactForm";
+import * as gtag from "../scripts/gtag";
 
 const animationDuration = 0.25;
 
@@ -46,6 +47,15 @@ export const MailButton = observer(() => {
     },
   };
 
+  const handlerOnClick = () => {
+    modalInView.set(true);
+    // tell analytics that the mail button was clicked
+    gtag.event({
+      action: "mail_button_clicked",
+      category: "Contact",
+      label: "Mail Button",
+    });
+  };
   return (
     <>
       <motion.div
@@ -58,7 +68,7 @@ export const MailButton = observer(() => {
           duration: animationDuration,
           times: [0, 0.9, 1],
         }}
-        onClick={() => modalInView.set(true)}
+        onClick={handlerOnClick}
       >
         <div role='button'>
           {!isVisible && (
@@ -175,6 +185,15 @@ export const MailButtonPlaceholder = observer(({ tag }) => {
     },
   };
 
+  const handlerOnClick = () => {
+    modalInView.set(true);
+    // tell analytics that the mail button was clicked
+    gtag.event({
+      action: "mail_button_clicked",
+      category: "Contact",
+      label: "Mail Button",
+    });
+  };
   return (
     <>
       <motion.div
@@ -189,7 +208,7 @@ export const MailButtonPlaceholder = observer(({ tag }) => {
         }
         variants={variants}
         role='button'
-        onClick={() => modalInView.set(true)}
+        onClick={handlerOnClick}
       >
         Leave a Message
       </motion.div>
