@@ -8,11 +8,10 @@ const portfolioData = {
     description: `3d website to showcase the different projects done by a client. 
 		The website is designed like a road winding in a spiral form. The project demos are on the side of the road. These are videos which are demoing the different projects. This can be clicked on to view more details in that category.`,
     informationList: [
-      `On this project, I was the developer, the design was already provided from a template 
-			close to the client's desires.`,
-      `My work was to customise the website and add features like mailing functionality that were
-			 non inclusive in the template we chose`,
-      `The home page welcomes the visitor with a carousel of offers from the restaurant that slide horizontally`,
+      `On this project, I was the developer, and contributed heavily to the design.`,
+      `I developed the 3d road and the project demos.`,
+      `The road is a spiral that winds up and down around a church 3d model.`,
+      `The project demos are videos that are triggered to play when the user clicks on them.`,
     ],
     techUsed: [
       "React Three Fiber",
@@ -65,12 +64,10 @@ const portfolioData = {
 		When a part in question is clicked on, a list of products that can be used on it is shown.
 		The list items are hyperlinks to the given item’s product page on the client’s e-commerce shop.`,
     informationList: [
-      `On this project, I was the developer, the design was already provided from a template 
-			close to the client's desires.`,
-      `My work was to customise the website and add features like dynamic page routing, mailing functionality that were
-			non inclusive in the template we chose.`,
-      `The website has insights on various tourist sites around the country with cards on the homepage`,
-      `It also has insights on various projects perfomed under Mfrika sponsorship.`,
+      `On this project, I was the developer. The raw oil rig model was provided by the client.`,
+      `I cleaned up the model in Blender and added the highlighting and the clickable areas.`,
+      `I also added the functionality to show the product list when a part is clicked on.`,
+      `The model can be rotated around by dragging the mouse.`,
     ],
     techUsed: [
       "React Three Fiber",
