@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
@@ -157,6 +157,18 @@ export const ProjectContent = ({ data }) => {
 const PortfolioProject = () => {
   const router = useRouter();
   const { pid } = router.query;
+
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    if (!router.isReady) return;
+
+    setIsReady(true);
+
+    // codes using router.query
+  }, [pid, router.isReady]);
+
+  if (!isReady) return null;
 
   const data = getPortfolio(pid);
 
