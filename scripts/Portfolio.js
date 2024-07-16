@@ -9,6 +9,7 @@ export const Portfolio = ({
   tags = [],
   videoId = "",
   hoverVideo = "",
+  fullVideo = "",
 }) => {
   return {
     slug,
@@ -21,5 +22,6 @@ export const Portfolio = ({
     tags,
     videoId,
     hoverVideo,
+    fullVideo,
   };
 };

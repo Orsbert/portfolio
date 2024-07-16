@@ -24,6 +24,7 @@ const portfolioData = {
     tags: ["React Three Fiber", "Three js", "React", "raycasting"],
     videoId: "fLSJpkcPjIw",
     hoverVideo: "/videos/o7ean3d.mp4",
+    fullVideo: "/videos/o7ean3d_c.mp4",
   }),
   facade: Portfolio({
     slug: "facade",
@@ -53,6 +54,7 @@ const portfolioData = {
     tags: ["Three js", "CAD", "raycasting", "Blender"],
     videoId: "xVzkwRsS728",
     hoverVideo: "/videos/facade.mp4",
+    fullVideo: "/videos/facade_c.mp4",
   }),
   molyslip: Portfolio({
     slug: "molyslip",
@@ -80,6 +82,7 @@ const portfolioData = {
     tags: ["React Three Fiber", "Three js", "React", "Blender", "raycasting"],
     videoId: "r5Wg3FmycCM",
     hoverVideo: "/videos/molyslip.mp4",
+    fullVideo: "/videos/molyslip_c.mp4",
   }),
   o7ean2d: Portfolio({
     slug: "o7ean2d",
@@ -104,6 +107,7 @@ const portfolioData = {
     tags: ["React Three Fiber", "Three js", "React", "Blender"],
     videoId: "Bnt1Si5mPaw",
     hoverVideo: "/videos/o7ean2d.mp4",
+    fullVideo: "/videos/o7ean2d_c.mp4",
   }),
   toptear: Portfolio({
     slug: "toptear",
@@ -128,6 +132,7 @@ const portfolioData = {
     tags: ["React Three Fiber", "Three js", "React", "Blender", "raycasting"],
     videoId: "FJ4UIuB4O1k",
     hoverVideo: "/videos/toptear.mp4",
+    fullVideo: "/videos/toptear_c.mp4",
   }),
   portfolio: Portfolio({
     slug: "portfolio",
