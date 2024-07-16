@@ -180,7 +180,7 @@ const PortfolioProject = () => {
   return (
     <>
       <NextSeo
-        title={data.title + " - Orsbert Ayesigye"}
+        title={data.title + " - Portfolio Project - Orsbert Ayesigye"}
         description={data.description}
       />
       <div className='portfolio-project'>
