@@ -9,7 +9,7 @@ import { SlidesContent } from "./SlidesContent";
 
 const UgDevSummitSlides = () => {
   return (
-    <div className=' h-screen w-screen'>
+    <div className='h-screen w-screen'>
       <Presentation />
     </div>
   );
@@ -31,8 +31,10 @@ const Presentation = () => {
     deckRef.current
       .initialize({
         plugins: [RevealHighlight],
-        // autoSlide: 2000,
-        // loop: true,
+        autoSlide: 2000,
+        loop: true,
+        controls: false,
+        progress: false,
       })
       .then(() => {
         // good place for event handlers and plugin setups

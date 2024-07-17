@@ -1,9 +1,16 @@
+import React from "react";
 import { Portfolio } from "./Portfolio";
 
 const portfolioData = {
   o7ean3d: Portfolio({
     slug: "o7ean3d",
     title: "Agency Landing Page",
+    titleJsx: (
+      <p>
+        <span className='green'>Agency</span>{" "}
+        <span className=''>Landing Page</span>
+      </p>
+    ),
     thumbnail: "/images/o7ean3d.png",
     description: `3d website to showcase the different projects done by a client. 
 		The website is designed like a road winding in a spiral form. The project demos are on the side of the road. These are videos which are demoing the different projects. This can be clicked on to view more details in that category.`,
@@ -25,10 +32,16 @@ const portfolioData = {
     videoId: "fLSJpkcPjIw",
     hoverVideo: "/videos/o7ean3d.mp4",
     fullVideo: "/videos/o7ean3d_c.mp4",
+    fullVideoDurationInMinutes: 3.06,
   }),
   facade: Portfolio({
     slug: "facade",
     title: "Facade Configurator",
+    titleJsx: (
+      <p>
+        Facade <span className='green'>Configurator</span>
+      </p>
+    ),
     thumbnail: "/images/facade.png",
     description: `CAD web application that lets you design and configure your own facade.
 		It provides a 3D editor that you can use to build a house from scratch or modify an existing one.
@@ -55,10 +68,18 @@ const portfolioData = {
     videoId: "xVzkwRsS728",
     hoverVideo: "/videos/facade.mp4",
     fullVideo: "/videos/facade_c.mp4",
+    fullVideoDurationInMinutes: 1.06,
   }),
   molyslip: Portfolio({
     slug: "molyslip",
     title: "Interactive Oil Rig Product guide",
+    titleJsx: (
+      <p>
+        <span className=''>Interactive</span>{" "}
+        <span className='green'>Oil Rig </span>
+        <span className=''>Product guide</span>
+      </p>
+    ),
     thumbnail: "/images/molyslip.png",
     description: `Oil rig, and be able to interact with it to show where the product would be used. 
 		The model can be rotated around. the model spins slowly when idle to show off the different parts.
@@ -83,10 +104,17 @@ const portfolioData = {
     videoId: "r5Wg3FmycCM",
     hoverVideo: "/videos/molyslip.mp4",
     fullVideo: "/videos/molyslip_c.mp4",
+    fullVideoDurationInMinutes: 1.2,
   }),
   o7ean2d: Portfolio({
     slug: "o7ean2d",
     title: "Corporate Web Presence",
+    titleJsx: (
+      <p>
+        <span className='green'>Corporate</span> Web <br />
+        <span className='green'>Presence</span>
+      </p>
+    ),
     thumbnail: "/images/o7ean2d.png",
     description: `Comprehensive website aimed at enhancing the digital presence of the client's esteemed organization. 
 		The project entailed the creation of a dynamic and visually captivating corporate website tailored to align seamlessly with the client's brand identity and objectives.`,
@@ -111,7 +139,14 @@ const portfolioData = {
   }),
   toptear: Portfolio({
     slug: "toptear",
-    title: "Metaverse multivendor e-commerce",
+    title: "3d e-commerce",
+    titleJsx: (
+      <p>
+        <span className=''>3d</span>
+        <br />
+        <span className='green'>e-commerce</span>
+      </p>
+    ),
     thumbnail: "/images/toptear.png",
     description: `Comprehensive website aimed at enhancing the digital presence of the client's esteemed organization. 
 		The project entailed the creation of a dynamic and visually captivating corporate website tailored to align seamlessly with the client's brand identity and objectives.`,
@@ -133,10 +168,17 @@ const portfolioData = {
     videoId: "FJ4UIuB4O1k",
     hoverVideo: "/videos/toptear.mp4",
     fullVideo: "/videos/toptear_c.mp4",
+    fullVideoDurationInMinutes: 0.39,
   }),
   portfolio: Portfolio({
     slug: "portfolio",
     title: "My Portfolio",
+    titleJsx: (
+      <p>
+        My
+        <span className='green'>Portfolio</span>
+      </p>
+    ),
     thumbnail: "/images/portfolio.png",
     description: `This is my Web Development Portfolio website. It is basically where you are right now.`,
     informationList: [

@@ -18,29 +18,39 @@ export const SlidesContent = () => {
 
 const SlideContent = ({ portfolioId }) => {
   const {
-    title,
+    titleJsx,
     hoverVideo: thumbnailVideo,
     fullVideo,
+    fullVideoDurationInMinutes,
   } = getPortfolio(portfolioId);
 
   return (
     <section data-auto-animate>
       <section className=''>
         <div className='w-[40%]'>
-          <video autoPlay loop muted className='rounded-xl overflow-hidden'>
+          <video
+            autoPlay
+            loop
+            muted
+            className='rounded-xl overflow-hidden'
+            data-autoplay
+          >
             <source src={thumbnailVideo} type='video/mp4' />
           </video>
         </div>
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
-          className='absolute bottom-0 right-0 h-full w-[40%] text-right flex flex-col'
+          className='absolute bottom-0 right-0 h-full w-[60%] text-right flex flex-col'
         >
-          <h2 className='fade-in'>{title}</h2>
+          <h2 className='fade-in'>{titleJsx}</h2>
           <BrandStamp />
         </motion.div>
       </section>
-      <VideoBackground url={fullVideo} />
+      <VideoBackground
+        url={fullVideo}
+        duration={fullVideoDurationInMinutes * 60 * 1000}
+      />
     </section>
   );
 };
@@ -48,7 +58,7 @@ const SlideContent = ({ portfolioId }) => {
 const IntroSection = () => {
   return (
     <section data-auto-animate>
-      <div className='flex items-center gap-4 fragment fade-right	'>
+      <div className='flex items-center gap-4 fade-right	'>
         <Image
           className='rounded-full fade-right'
           data-auto-animate-id='orsbert-dp'
@@ -68,8 +78,9 @@ const IntroSection = () => {
         </div>
       </div>
       <p className='fragment'>
-        I help brands & businesses design, develop, test, deploy and monitor
-        web-based applications.
+        <span>Crafting</span>{" "}
+        <span className='green'>captivating &amp; intuitive </span>
+        <span>interactive web interfaces, sites, and applications.</span>
       </p>
     </section>
   );
@@ -92,13 +103,16 @@ const BrandStamp = () => {
   );
 };
 
-const VideoBackground = ({ url }) => {
+const VideoBackground = ({ url, duration }) => {
   return (
     <section
       data-auto-animate
+      data-autoslide={duration}
       data-background-video={url}
       data-background-video-loop
       data-background-video-muted
+      data-background-size='contain'
+      data-background-color='black'
     ></section>
   );
 };
