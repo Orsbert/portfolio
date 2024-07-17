@@ -23,7 +23,7 @@ export default function QRLanding() {
       >
         <h1 className='text-5xl font-bold text-gray-800 mb-4'>Hi there!</h1>
         <p className='text-xl text-gray-700 mb-8'>
-          I'm thrilled you scanned my code. Let's connect!
+          I&apos;m thrilled you scanned my code. Let&apos;s connect!
         </p>
         <motion.button
           className='bg-green-500 text-white text-2xl font-bold py-4 px-10 rounded-full shadow-lg focus:outline-none'
