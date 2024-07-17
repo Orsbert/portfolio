@@ -32,7 +32,7 @@ const portfolioData = {
     videoId: "fLSJpkcPjIw",
     hoverVideo: "/videos/o7ean3d.mp4",
     fullVideo: "/videos/o7ean3d_c.mp4",
-    fullVideoDurationInMinutes: 3.06,
+    fullVideoDurationInMinutes: 1.44,
   }),
   facade: Portfolio({
     slug: "facade",
