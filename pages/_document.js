@@ -34,7 +34,6 @@ export default class extends Document {
           <Main />
           <NextScript />
         </body>
-        <script src='https://player.vimeo.com/api/player.js'></script>
       </Html>
     );
   }
