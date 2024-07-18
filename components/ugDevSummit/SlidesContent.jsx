@@ -3,7 +3,7 @@ import { getPortfolio } from "../../scripts/portfolioData";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const portfolioIds = ["molyslip", "o7ean3d", "toptear", "o7ean2d"];
+const portfolioIds = ["molyslip", "o7ean3d", "toptear", "o7ean2d", "facade"];
 
 export const SlidesContent = () => {
   return (
@@ -13,6 +13,18 @@ export const SlidesContent = () => {
         <SlideContent key={portfolioId} portfolioId={portfolioId} />
       ))}
     </>
+  );
+};
+
+const LetsConnectQrCode = () => {
+  return (
+    <Image
+      src='/images/hi-qr-code.png'
+      height={100}
+      width={100}
+      alt=''
+      className='shadow-lg'
+    />
   );
 };
 
@@ -37,6 +49,7 @@ const SlideContent = ({ portfolioId }) => {
           >
             <source src={thumbnailVideo} type='video/mp4' />
           </video>
+          <LetsConnectQrCode />
         </div>
         <motion.div
           initial={{ opacity: 0, y: 100 }}
@@ -82,6 +95,9 @@ const IntroSection = () => {
         <span className='green'>captivating &amp; intuitive </span>
         <span>interactive web interfaces, sites, and applications.</span>
       </p>
+      <div className='flex justify-center fragment'>
+        <LetsConnectQrCode />
+      </div>
     </section>
   );
 };
@@ -113,6 +129,10 @@ const VideoBackground = ({ url, duration }) => {
       data-background-video-muted
       data-background-size='contain'
       data-background-color='black'
-    ></section>
+    >
+      <div className='fixed bottom-0 right-0'>
+        <LetsConnectQrCode />
+      </div>
+    </section>
   );
 };
