@@ -33,7 +33,7 @@ const Presentation = () => {
         plugins: [RevealHighlight],
         autoSlide: 2000,
         loop: true,
-        controls: false,
+        controls: true,
         progress: false,
       })
       .then(() => {
