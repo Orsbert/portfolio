@@ -148,8 +148,7 @@ const portfolioData = {
       </p>
     ),
     thumbnail: "/images/toptear.png",
-    description: `Comprehensive website aimed at enhancing the digital presence of the client's esteemed organization. 
-		The project entailed the creation of a dynamic and visually captivating corporate website tailored to align seamlessly with the client's brand identity and objectives.`,
+    description: `Transform your product catalog into an engaging 3D environment. Customers navigate through themed rooms or landscapes, discovering products in context. Great for home decor, furniture, or lifestyle brands.`,
     informationList: [
       `Led the technical development of the website working closely with the client's design team.`,
       `The site is a concept of a metaverse multivendor e-commerce platform.`,
